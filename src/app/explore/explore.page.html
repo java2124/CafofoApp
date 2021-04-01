@@ -1,9 +1,54 @@
 <ion-header>
-  <ion-toolbar>
-
+  <a href="https://www.who.int/emergencies/diseases/novel-coronavirus-2019">Confira as últimas informações sobre nossa resposta à COVID-19</a>
+  <ion-toolbar color = "light">
+    <ion-searchbar></ion-searchbar>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <ion-card>
+    <ion-row>
+      <ion-col size="12">
+        <ion-img src= "https://images.pexels.com/photos/3051551/pexels-photo-3051551.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"></ion-img>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <p>Anfitriões fazem acontecer</p>
+      </ion-col>
+    </ion-row>
+    
+  </ion-card>
+
+  <p>Mais Acessados!! *-*</p>
+
+  <ion-slides pager="true" [options]="slideOpts">
+    <ion-slide >
+      <ion-row>
+        <ion-img src= "https://images.pexels.com/photos/3051551/pexels-photo-3051551.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"></ion-img>
+      </ion-row>
+      <ion-row>
+        <p>Slide1</p>
+      </ion-row>
+    </ion-slide>
+    <ion-slide>
+      <ion-row>
+        <ion-img src= "https://images.pexels.com/photos/3051551/pexels-photo-3051551.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"></ion-img>
+      </ion-row>
+      <ion-row>
+        <ion-text class= "medium" >Casa na floresta em São Roque</ion-text>
+      </ion-row>
+    </ion-slide>
+    <ion-slide>
+      <ion-row>
+        <ion-img src= "https://images.pexels.com/photos/3051551/pexels-photo-3051551.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"></ion-img>
+      </ion-row>
+      <ion-row>
+        <ion-text class= "medium" >Casa na floresta em São Roque</ion-text>
+      </ion-row>
+    </ion-slide>
+  </ion-slides>
+
+
 
 </ion-content>
