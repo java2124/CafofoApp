@@ -1,6 +1,10 @@
 .image-card {
     img{
-        height: 20vw;
+        width: 100%;
         object-fit: cover;
     }
+ }
+
+ .img-border{
+     border-radius: 10px;
  }
