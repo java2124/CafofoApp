@@ -1,146 +1,177 @@
 <ion-header>
-  <ion-toolbar color = "primary">
-    <ion-title>Pedir para reservar</ion-title>
+  <ion-toolbar color = "light">
+    <ion-icon slot="start" name="chevron-forward-outline"></ion-icon>
+    <ion-title color= "medium">Pedir para reservar</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
 
 <ion-grid>
-  <ion-row>
-    <ion-col>
-      <ion-text>Imagem do imóvel</ion-text>
-    </ion-col>
-    <ion-col>
-      <ion-text>infos sobre o imóvel e avaliação</ion-text>
-    </ion-col>
-    <ion-col>
-
-    </ion-col>
-  </ion-row>
+  <ion-card>
+    <ion-row>
+      <ion-col size="auto">
+        <img src= "https://images.pexels.com/photos/209315/pexels-photo-209315.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"/>
+      </ion-col>
+      <ion-col size= "auto" >
+        <ion-row class="ion-text-center">
+          <ion-text class= "medium" >Casa na floresta em São Roque</ion-text>
+        </ion-row>
+        <ion-row class="ion-text-center">
+          <ion-card-title class= "blackText" class="ion-text-center"><strong>Casa Floresta Encantada</strong></ion-card-title >
+        </ion-row>
+        <ion-row>
+          <ion-card-subtitle color= "medium" class="ion-text-center">6 camas . 3 banheiros</ion-card-subtitle>
+        </ion-row>
+        <ion-row>
+          <ion-col size="auto">
+            <ion-icon name="star" color="success"></ion-icon>
+            <ion-text color="blackText"><strong>4.86</strong></ion-text>
+          </ion-col>
+          <ion-col size="auto">
+            <ion-icon name="diamond-outline" color="success"></ion-icon>
+            <ion-text color="medium"><strong>Superhost</strong></ion-text>
+          </ion-col>
+        </ion-row>
+      </ion-col>
+    </ion-row>
+  </ion-card>
 </ion-grid>
 
 <ion-grid>
-  <ion-row>
-    <ion-col>
-      <h4><b>Sua viagem</b></h4>
-    </ion-col>
-  </ion-row>
-  <ion-row class="ion-align-items-center">
-    <ion-col>
-      <h5><b>Datas</b></h5>
-      <ion-text color="medium">initDate - finishDate</ion-text>
-    </ion-col>
-    <ion-col size="auto">
-      <ion-button onclick="moreInfo" color = "light">Editar</ion-button>
-    </ion-col>
-  </ion-row>
-  <ion-row class="ion-align-items-center">
-    <ion-col>
-      <h5><b>Hóspedes</b></h5>
-      <ion-text color= "medium">qtdHost returnHost</ion-text>
-    </ion-col>
-    <ion-col size="auto">
-      <ion-button onclick="moreInfo" color = "light">Editar</ion-button>
-    </ion-col>
-  </ion-row>
-  <ion-row class="ion-align-items-center">
-    <ion-col>
-      <h5><b>Esta é uma viagem a trabalho?</b></h5>
-    </ion-col>
-    <ion-col size= "auto">
-      <ion-toggle color="medium"></ion-toggle>
-    </ion-col>
-  </ion-row>
+  <ion-card>
+    <ion-row>
+      <ion-col>
+        <ion-card-title class= "blackText"><b>Sua viagem</b></ion-card-title>
+      </ion-col>
+    </ion-row>
+    <ion-row class="ion-align-items-center">
+      <ion-col>
+        <h5 class= "blackText"><b>Datas</b></h5>
+        <ion-text color="medium">initDate - finishDate</ion-text>
+      </ion-col>
+      <ion-col size="auto">
+        <ion-button onclick="moreInfo" color = "light">Editar</ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row class="ion-align-items-center">
+      <ion-col>
+        <h5 class= "blackText"><b>Hóspedes</b></h5>
+        <ion-text color= "medium">qtdHost returnHost</ion-text>
+      </ion-col>
+      <ion-col size="auto">
+        <ion-button onclick="moreInfo" color = "light">Editar</ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row class="ion-align-items-center">
+      <ion-col>
+        <h5 class= "blackText"><b>Esta é uma viagem a trabalho?</b></h5>
+      </ion-col>
+      <ion-col size= "auto">
+        <ion-toggle color="medium"></ion-toggle>
+      </ion-col>
+    </ion-row>
+  </ion-card>
 </ion-grid>
 
 <ion-grid>
-  <ion-row>
-    <h4><b>Informações de preço</b></h4>
-  </ion-row>
-  <ion-row class="ion-align-items-center">
-    <ion-col>
-      <ion-text color = "medium"> priceDay x days</ion-text>
-    </ion-col>
-    <ion-col size="auto">
-      <ion-text color="medium">priceTotalDays</ion-text>
-    </ion-col>
-  </ion-row>
-  <ion-row class="ion-align-items-center">
-    <ion-col>
-      <ion-text color = "medium">Desconto semanal de deductionWeek %</ion-text>
-    </ion-col>
-    <ion-col size="auto">
-      <ion-text color = "success">deductionWeekTotal</ion-text>
-    </ion-col>
-  </ion-row>
-  <ion-row class="ion-align-items-center">
-    <ion-col>
-      <ion-text color = "medium">Taxa de Limpeza</ion-text>
-    </ion-col>
-    <ion-col size ="auto">
-      <ion-text color = "medium">cleaningFee</ion-text>
-    </ion-col>
-  </ion-row>
-  <ion-row class="ion-align-items-center">
-    <ion-col>
-      <ion-text color = "medium">Taxa de Serviço</ion-text>
-    </ion-col>
-    <ion-col size="auto">
-      <ion-text color="medium">serviceFee</ion-text>
-    </ion-col>
-  </ion-row>
-  <ion-row class="ion-align-items-center">
-    <ion-col>
-      <ion-text><b>Total (current)</b></ion-text>
-    </ion-col>
-    <ion-col size="auto">
-      <ion-text><b>totalCost</b></ion-text>
-    </ion-col>
-  </ion-row>
-  <ion-row>
-    <ion-button onclick="moreInfo" color = "light">Mais informações</ion-button>
-  </ion-row>
+  <ion-card>
+    <ion-row>
+      <ion-card-title class= "blackText"><b>Informações de preço</b></ion-card-title>
+    </ion-row>
+    <ion-row class="ion-align-items-center">
+      <ion-col>
+        <ion-text color = "medium"> priceDay x days</ion-text>
+      </ion-col>
+      <ion-col size="auto">
+        <ion-text color="medium">priceTotalDays</ion-text>
+      </ion-col>
+    </ion-row>
+    <ion-row class="ion-align-items-center">
+      <ion-col>
+        <ion-text color = "medium">Desconto semanal de deductionWeek %</ion-text>
+      </ion-col>
+      <ion-col size="auto">
+        <ion-text color = "success">deductionWeekTotal</ion-text>
+      </ion-col>
+    </ion-row>
+    <ion-row class="ion-align-items-center">
+      <ion-col>
+        <ion-text color = "medium">Taxa de Limpeza</ion-text>
+      </ion-col>
+      <ion-col size ="auto">
+        <ion-text color = "medium">cleaningFee</ion-text>
+      </ion-col>
+    </ion-row>
+    <ion-row class="ion-align-items-center">
+      <ion-col>
+        <ion-text color = "medium">Taxa de Serviço</ion-text>
+      </ion-col>
+      <ion-col size="auto">
+        <ion-text color="medium">serviceFee</ion-text>
+      </ion-col>
+    </ion-row>
+    <ion-row class="ion-align-items-center">
+      <ion-col>
+        <ion-text class= "blackText"><b>Total (current)</b></ion-text>
+      </ion-col>
+      <ion-col size="auto">
+        <ion-text><b>totalCost</b></ion-text>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-button onclick="moreInfo" color = "light">Mais informações</ion-button>
+    </ion-row>
+  </ion-card>
 </ion-grid>
 
 <ion-grid>
-  <ion-item>
-    <ion-label><b>Parcelas</b></ion-label>
-    <ion-select value="Selecionar" okText="Okay" cancelText="Dismiss">
-      <ion-select-option value="total1">1x total1</ion-select-option>
-      <ion-select-option value="total2">2x total2</ion-select-option>
-      <ion-select-option value="total3">3x total3</ion-select-option>
-      <ion-select-option value="total 4">4x total4</ion-select-option>
-      <ion-select-option value="total 5">5x total5</ion-select-option>
-    </ion-select>
-  </ion-item>
+  <ion-card>
+    <ion-item>
+      <ion-label class= "blackText"><b>Parcelas</b></ion-label>
+      <ion-select value="Selecionar" okText="Okay" cancelText="Dismiss">
+        <ion-select-option value="total1">1x total1</ion-select-option>
+        <ion-select-option value="total2">2x total2</ion-select-option>
+        <ion-select-option value="total3">3x total3</ion-select-option>
+        <ion-select-option value="total4">4x total4</ion-select-option>
+        <ion-select-option value="total5">5x total5</ion-select-option>
+      </ion-select>
+    </ion-item>
+  </ion-card>
 </ion-grid>
 
 <ion-grid>
-  <ion-row>
-    <ion-col>
-      <h4><b>Pague com</b></h4>
-    </ion-col>
-  </ion-row>
-  <ion-row class="ion-align-items-center">
-    <ion-col>
-      <ion-text>Forma de pagamento
-      </ion-text>
-    </ion-col>
-    <ion-col size="auto">
-      <ion-button onclick="addPay" color="light">Adicionar</ion-button>
-    </ion-col>
-  </ion-row>
-  <ion-row>
-    <ion-button onclick="cupom" color="light">Inserir Cupom
-    </ion-button>
-  </ion-row>
+  <ion-card>
+    <ion-row>
+      <ion-col>
+        <ion-card-title class= "blackText"><b>Pague com</b></ion-card-title>
+      </ion-col>
+    </ion-row>
+    <ion-row class="ion-align-items-center">
+      <ion-col>
+        <ion-card-subtitle class= "blackText">Forma de pagamento
+        </ion-card-subtitle>
+      </ion-col>
+      <ion-col size="auto">
+        <ion-button onclick="addPay" color="light">Adicionar</ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-button onclick="cupom" color="light">Inserir Cupom
+      </ion-button>
+    </ion-row>
+  </ion-card>
 </ion-grid>
 
 <ion-grid>
-  <ion-row>
-    <h4><b>Política de Cancelamento</b></h4>
-  </ion-row>
+  <ion-card>
+    <ion-row>
+      <ion-card-title class= "blackText"><b>Política de Cancelamento</b></ion-card-title>
+    </ion-row>
+    <ion-row>
+      <p color="medium" style="text-align: center">Cancelamento gratuito pot 48 horas. Depois disso, cancele até 24 horas antes do dia do check-in e receba 50% de reembolso, menos a taxa de serviço.</p>
+    </ion-row>
+  </ion-card>
 </ion-grid>
 
 <ion-grid>
