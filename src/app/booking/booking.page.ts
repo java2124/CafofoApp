@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { AlertController } from '@ionic/angular';
-
-
 @Component({
   selector: 'app-booking',
   templateUrl: './booking.page.html',
@@ -15,18 +13,21 @@ export class BookingPage implements OnInit {
   public avaliationHouse = 4.86;
 
   public optionWork = false;
-  public editHospd = false;
   public editDate2 = false;
   public finishDate = new Date();
   public initDate = new Date();
   public close = true;
+  public editGuest2 = false;
+  public qtdGuest = 0;
+  public qtdGuestKids = 0;
   public textWork2 = false;
   public savedWork = true;
   public addCupom = false;
   public removeButtonCupom = true;
+  public saveGuest = true;
 
   public priceDay = 70.00;
-  public days = 5;
+  public days = Math.abs(this.finishDate.getTime() - this.initDate.getTime());
   public priceTotalDays = this.priceDay * this.days;
   public deductionWeek = 20;
   public deductionWeekTotal = (this.priceTotalDays * (this.deductionWeek * (this.days / 7))) / 100;
@@ -39,6 +40,31 @@ export class BookingPage implements OnInit {
   public total3 = this.totalCost / 3;
   public total4 = this.totalCost / 4;
   public total5 = this.totalCost / 5;
+
+  public addGuest(){
+    this.qtdGuest += 1;
+  }
+
+  public removeGuest(){
+    if (this.qtdGuest > 0){
+      this.qtdGuest -= 1;
+    }
+  }
+
+  public addGuestKids(){
+    this.qtdGuestKids += 1;
+  }
+
+  public removeGuestKids(){
+    if (this.qtdGuestKids > 0){
+      this.qtdGuestKids -= 1;
+    }
+  }
+
+  public clear(){
+    this.qtdGuest = 0;
+    this.qtdGuestKids = 0;
+  }
 
   public cupom(){
     this.addCupom = true;
@@ -69,8 +95,14 @@ export class BookingPage implements OnInit {
     this.close = true;
   }
 
+  public editGuest(){
+    this.editGuest2 = true;
+    this.saveGuest = true;
+  }
+
   public closed(){
     this.close = false;
+    this.saveGuest = false;
   }
 
   constructor(private alertController: AlertController) { }
@@ -95,8 +127,7 @@ export class BookingPage implements OnInit {
     alert.present();
   }
 
-
-  ngOnInit() {
+   ngOnInit() {
   }
 
 }

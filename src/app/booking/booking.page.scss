@@ -1,13 +1,16 @@
-.blackText{
+.header {
+  padding: 15px;
+}
+
+.arrow-button {
   color: black;
+  text-decoration: none;
 }
 
-ion-content{
-  --ion-background-color: #f5f6f9;
-}
-
-ion-card{
-  --ion-background-color: white;
+.save-button {
+  font-size: 1.5em;
+  color: black;
+  text-decoration: none;
 }
 
 ion-grid{
@@ -15,14 +18,17 @@ ion-grid{
 }
 
 .editCard{
-  border-left: 3px solid yellow;
+  border-left: 3px solid #f66574;
 }
 
 ion-textarea{
   border: 1px solid black;
+  border-radius: 8px;
 }
 
 .borderInput{
   border: 1px solid black;
+  border-radius: 8px;
 }
+
 
