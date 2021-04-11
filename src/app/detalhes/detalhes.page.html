@@ -1,14 +1,18 @@
 <ion-header>
-  <ion-toolbar color = "primary">
-    <ion-title>Detalhes</ion-title>
+  <ion-toolbar color = "light">
+    <ion-icon slot="start" name="chevron-forward-outline"></ion-icon>
+    <ion-title color= "medium">Detalhes Casa na floresta em São Roque</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
 
-  <ion-card class="ion-activatable ripple-parent" class="ion-pedding">
-    <img src="https://images.pexels.com/photos/209315/pexels-photo-209315.jpeg?cs=srgb&dl=pexels-pixabay-209315.jpg&fm=jpg">
-    <ion-card-header>
+  <ion-grid>
+  <ion-card>
+    <ion-row>
+      <ion-col size="auto">
+        <ion-img src= "https://images.pexels.com/photos/209315/pexels-photo-209315.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"></ion-img>
+      </ion-col>
       <ion-row>
         <ion-col class= "image-card" class="ion-activatable ripple-parent">
           <img src="https://images.pexels.com/photos/6315798/pexels-photo-6315798.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940">
@@ -17,16 +21,69 @@
           <img src="https://images.pexels.com/photos/6315808/pexels-photo-6315808.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500">
         </ion-col>
         <ion-col class= "image-card" class="ion-activatable ripple-parent">
-          <img src="https://images.pexels.com/photos/6315799/pexels-photo-6315799.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940">
+          <img  src="https://images.pexels.com/photos/6315799/pexels-photo-6315799.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940">
         </ion-col>
         <ion-col  class= "image-card" class="ion-activatable ripple-parent">
         <img src="https://images.pexels.com/photos/6315803/pexels-photo-6315803.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500">
         </ion-col>
       </ion-row>
-    </ion-card-header>
+    </ion-row>
   </ion-card>
+</ion-grid>
 
 
-  
+<ion-card>
+  <ion-row>
+    <ion-col class="ion-padding">
+      <ion-card-title class= "blackText"><b>Descrição do proprietário</b></ion-card-title>      <h5>A casa possui uma excelente infraestrutura, com mobilias novas e modernas, os quartos são equipados com ar condicionado, além de aparelhos de ginástica. Com uma bela vista para a floresta. A casa está em um local privilegiado dentro de uma reserva segura e traqnuila.</h5>
+      </ion-col>
+      </ion-row>
+    </ion-card>
+
+    <ion-card>
+  <ion-row>
+    <ion-col class="ion-padding">
+      <ion-icon name="expand"></ion-icon>
+        <ion-label position="floating"> 280 m²</ion-label>
+    </ion-col>
+    <ion-col class="ion-padding">
+      <ion-icon name="paw"></ion-icon>
+      <ion-label position="floating"> aceita pet</ion-label>
+    </ion-col>
+</ion-row>
+
+<ion-row>
+  <ion-col class="ion-padding">
+    <ion-icon name="bed"></ion-icon>
+  <ion-label position="floating"> 3 quartos</ion-label>
+  </ion-col>
+  <ion-col class="ion-padding">
+    <ion-icon name="barbell"></ion-icon>
+    <ion-label position="floating"> academia</ion-label>
+  </ion-col>
+</ion-row>
+
+<ion-row>
+  <ion-col class="ion-padding">
+  <ion-icon name="car"></ion-icon>
+  <ion-label position="floating"> garagem</ion-label>
+  </ion-col>
+  <ion-col class="ion-padding">
+    <ion-icon name="volume-mute"></ion-icon>
+    <ion-label position="floating"> rua silenciosa</ion-label>
+  </ion-col>
+</ion-row>
+</ion-card>
+
+<ion-grid>
+  <ion-row>
+    <ion-col width-50 style="text-align: center">
+      <ion-button (click)="voltar()" color="danger"> Voltar</ion-button>
+    </ion-col>
+    <ion-col width-50 style="text-align: center">
+      <ion-button (click)="detalhes()" color="success"> Confirmar</ion-button>
+    </ion-col>
+  </ion-row>
+</ion-grid>
 
 </ion-content>

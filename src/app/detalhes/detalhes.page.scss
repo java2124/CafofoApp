@@ -1,6 +1,22 @@
 .image-card {
     img{
-        height: 20vw;
+        width: 100%;
         object-fit: cover;
     }
  }
+
+ ion-content{
+    --ion-background-color: #f5f6f9;
+  }
+
+  ion-card{
+    --ion-background-color: white;
+  }
+  
+  .blackText{
+    color: black;
+  }
+    
+  ion-icon{
+    color: black;
+  }

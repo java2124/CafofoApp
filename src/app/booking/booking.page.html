@@ -1,40 +1,47 @@
-<ion-header>
-  <ion-toolbar color = "light">
-    <ion-icon slot="start" name="chevron-forward-outline"></ion-icon>
-    <ion-title color= "medium">Pedir para reservar</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-row class="ion-align-items-center">
+  <ion-col>
+    <ion-header>
+      <ion-toolbar>
+        <div class="header">
+          <span class="ion-float-start ion-padding">
+              <a class="arrow-button" routerLink="/detalhes"><ion-icon name="arrow-back-sharp"></ion-icon></a>
+          </span>
+          <span class="ion-float-end ion-padding">
+            <a class="save-button">Pedir para reservar</a>
+          </span>
+        </div>
+      </ion-toolbar>
+    </ion-header>
+  </ion-col>
+</ion-row>
 
 <ion-content>
 
 <ion-grid>
   <ion-card>
-    <ion-row>
+    <ion-row class="ion-align-items-center">
       <ion-col size="auto">
-        <ion-img src= "https://images.pexels.com/photos/209315/pexels-photo-209315.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"></ion-img>
+        <ion-avatar >
+          <ion-img src= "https://images.pexels.com/photos/209315/pexels-photo-209315.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"></ion-img>
+        </ion-avatar>
       </ion-col>
       <ion-col size= "auto" >
-        <ion-card-header>
-          <ion-row class="ion-text-center">
-            <ion-text class= "medium" >Casa na floresta em São Roque</ion-text>
-          </ion-row>
-          <ion-row class="ion-text-center">
-            <ion-card-title class= "blackText" class="ion-text-center"><strong>Casa Floresta Encantada</strong></ion-card-title >
-          </ion-row>
-          <ion-row>
-            <ion-card-subtitle color= "medium" class="ion-text-center">6 camas . 3 banheiros</ion-card-subtitle>
-          </ion-row>
+            <ion-text class= "medium">{{descriptionHouse}}</ion-text>
+            <b></b>
+            <ion-card-title ><strong>{{nameHouse}}</strong></ion-card-title >
+              <b></b>
+            <ion-card-subtitle color= "medium">{{detailsHouse}}</ion-card-subtitle>
+              <b></b>
           <ion-row>
             <ion-col size="auto">
-              <ion-icon name="star" color="success"></ion-icon>
-              <ion-text color="blackText"><strong>4.86</strong></ion-text>
+              <ion-icon name="star" color="primary"></ion-icon>
+              <ion-text><strong>{{avaliationHouse}}</strong></ion-text>
             </ion-col>
             <ion-col size="auto">
-              <ion-icon name="diamond-outline" color="success"></ion-icon>
+              <ion-icon name="diamond-outline" color="primary"></ion-icon>
               <ion-text color="medium"><strong>Superhost</strong></ion-text>
             </ion-col>
           </ion-row>
-        </ion-card-header>
       </ion-col>
     </ion-row>
   </ion-card>
@@ -44,16 +51,16 @@
   <ion-card>
     <ion-row>
       <ion-col>
-        <ion-card-title class= "blackText"><b>Sua viagem</b></ion-card-title>
+        <ion-card-title ><b>Sua viagem</b></ion-card-title>
       </ion-col>
     </ion-row>
     <ion-row class="ion-align-items-center">
       <ion-col>
-        <h5 class= "blackText"><b>Datas</b></h5>
-        <ion-text color="medium"> {{initDate | date}} até {{finishDate | date}}</ion-text>
+        <h5 ><b>Datas</b></h5>
+        <ion-text color="medium"> {{initDate | date}} <strong>até</strong> {{finishDate | date}}</ion-text>
       </ion-col>
-      <ion-col size="auto">
-        <ion-button (click)="editDate()" color = "light">Editar</ion-button>
+      <ion-col  size="auto">
+        <ion-button (click)="editDate()" color = "primary" size="small">Editar</ion-button>
       </ion-col>
     </ion-row>
     <ion-row *ngIf="editDate2 && close" class="ion-align-items-center">
@@ -63,16 +70,44 @@
         <ion-datetime displayFormat="DD MM YY"  placeholder="Check-out" [(ngModel)] = "finishDate"></ion-datetime>
       </ion-col>
       <ion-col size="auto">
-        <ion-button (click) = "closed()" color="light"><ion-icon name="close-outline"></ion-icon></ion-button>
+        <ion-button (click) = "closed()" fill="clear"><ion-icon name="close-sharp"></ion-icon></ion-button>
       </ion-col>
     </ion-row>
     <ion-row class="ion-align-items-center">
       <ion-col>
-        <h5 class= "blackText"><b>Hóspedes</b></h5>
-        <ion-text color= "medium">qtdHost returnHost</ion-text>
+        <h5 ><b>Hóspedes</b></h5>
+        <ion-text color= "medium">{{qtdGuest}} Adultos . {{qtdGuestKids}} Crianças</ion-text>
       </ion-col>
       <ion-col size="auto">
-        <ion-button onclick="moreInfo" color = "light">Editar</ion-button>
+        <ion-button (click)="editGuest()" color = "primary" size="small">Editar</ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row *ngIf="editGuest2 && saveGuest" class="ion-align-items-center">
+      <ion-col>
+        <ion-text><strong>Adultos</strong></ion-text>
+      </ion-col>
+      <ion-col size="auto">
+        <ion-button fill="clear" (click) = "removeGuest()"><ion-icon name="remove-circle-outline"></ion-icon></ion-button>
+        <ion-text>{{qtdGuest}}</ion-text>
+        <ion-button fill="clear" (click) = "addGuest()"><ion-icon name="add-circle-outline"></ion-icon></ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row *ngIf="editGuest2 && saveGuest">
+      <ion-col>
+        <ion-text><strong>Crianças</strong></ion-text>
+      </ion-col>
+      <ion-col size="auto" class="ion-align-items-center">
+        <ion-button fill="clear" (click) = "removeGuestKids()"><ion-icon name="remove-circle-outline"></ion-icon></ion-button>
+        <ion-text>{{qtdGuestKids}}</ion-text>
+        <ion-button fill="clear" (click) = "addGuestKids()"><ion-icon name="add-circle-outline"></ion-icon></ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row *ngIf="editGuest2 && saveGuest" class="ion-align-items-center">
+      <ion-col>
+        <ion-button fill="clear" (click) = "clear()" size="small">Limpar</ion-button>
+      </ion-col>
+      <ion-col size="auto">
+        <ion-button color="primary" (click) = "closed()" size="small">Salvar</ion-button>
       </ion-col>
     </ion-row>
     <hr color=#fff>
@@ -103,10 +138,10 @@
     </ion-row>
     <ion-row class="ion-align-items-center">
       <ion-col>
-        <h5 class= "blackText"><b>Esta é uma viagem a trabalho?</b></h5>
+        <h5 ><b>Esta é uma viagem a trabalho?</b></h5>
       </ion-col>
       <ion-col size= "auto">
-        <ion-toggle color="success" [(ngModel)]="optionWork"></ion-toggle>
+        <ion-toggle color="primary" [(ngModel)]="optionWork"></ion-toggle>
       </ion-col>
     </ion-row>
     <ion-row  *ngIf = "optionWork" class="ion-align-items-center">
@@ -115,11 +150,16 @@
         <p color="medium">Adicione uma observação para fins de declaração de gasto.</p>
       </ion-col>
       <ion-col size="auto">
-        <ion-button onclick="textWork" color="light">Adicionar</ion-button>
+        <ion-button (click)="textWork()" color="primary" size="small"> <ion-icon name="add-outline" slot="start"></ion-icon>ADD</ion-button>
       </ion-col>
     </ion-row>
-    <ion-row>
-
+    <ion-row *ngIf = "textWork2 && savedWork && optionWork" class="ion-align-items-center">
+      <ion-col>
+        <ion-textarea></ion-textarea>
+      </ion-col>
+      <ion-col size="auto">
+          <ion-button (click)="saveWork()" color="primary"><ion-icon name="checkmark-done-outline"></ion-icon></ion-button>
+      </ion-col>
     </ion-row>
   </ion-card>
 </ion-grid>
@@ -128,24 +168,24 @@
   <ion-card>
     <ion-row>
       <ion-col>
-        <ion-card-title class= "blackText"><b>Informações de preço</b></ion-card-title>
+        <ion-card-title ><b>Informações de preço</b></ion-card-title>
       </ion-col>
     </ion-row>
     <hr color=#fff>
     <ion-row class="ion-align-items-center">
       <ion-col>
-        <ion-text color = "medium"> priceDay x days</ion-text>
+        <ion-text color = "medium"> {{ priceDay | currency:'BRL':true:'1.2-2'}} x {{days}}</ion-text>
       </ion-col>
       <ion-col size="auto">
-        <ion-text color="medium">priceTotalDays</ion-text>
+        <ion-text color="medium">{{priceTotalDays | currency:'BRL':true:'1.2-2'}}</ion-text>
       </ion-col>
     </ion-row>
     <ion-row class="ion-align-items-center">
       <ion-col>
-        <ion-text color = "medium">Desconto semanal de deductionWeek %</ion-text>
+        <ion-text color = "medium">Desconto semanal de {{deductionWeek}}%</ion-text>
       </ion-col>
       <ion-col size="auto">
-        <ion-text color = "success">deductionWeekTotal</ion-text>
+        <ion-text color = "primary">{{deductionWeekTotal | currency:'BRL':true:'1.2-2'}}</ion-text>
       </ion-col>
     </ion-row>
     <ion-row class="ion-align-items-center">
@@ -153,7 +193,7 @@
         <ion-text color = "medium">Taxa de Limpeza</ion-text>
       </ion-col>
       <ion-col size ="auto">
-        <ion-text color = "medium">cleaningFee</ion-text>
+        <ion-text color = "medium">{{cleaningFee | currency:'BRL':true:'1.2-2'}}</ion-text>
       </ion-col>
     </ion-row>
     <ion-row class="ion-align-items-center">
@@ -161,21 +201,21 @@
         <ion-text color = "medium">Taxa de Serviço</ion-text>
       </ion-col>
       <ion-col size="auto">
-        <ion-text color="medium">serviceFee</ion-text>
+        <ion-text color="medium">{{serviceFee | currency:'BRL':true:'1.2-2'}}</ion-text>
       </ion-col>
     </ion-row>
     <ion-row class="ion-align-items-center">
       <ion-col>
-        <ion-text class= "blackText"><b>Total (BRL)</b></ion-text>
+        <ion-text ><b>Total (BRL)</b></ion-text>
       </ion-col>
       <ion-col size="auto">
-        <ion-text><b>totalCost</b></ion-text>
+        <ion-text ><b>{{totalCost | currency:'BRL':true:'1.2-2'}}</b></ion-text>
       </ion-col>
     </ion-row>
     <ion-row>
       <ion-col></ion-col>
       <ion-col size="auto">
-        <ion-button onclick="moreInfo" color = "light" >Mais informações</ion-button>
+        <ion-button (click)="moreInfo()" color = "light" size="small" >Mais informações</ion-button>
       </ion-col>
     </ion-row>
   </ion-card>
@@ -190,11 +230,11 @@
       <ion-col size="auto">
         <ion-item>
           <ion-select value="Selecionar" okText="Okay" cancelText="Dismiss">
-            <ion-select-option value="total1">1x total1</ion-select-option>
-            <ion-select-option value="total2">2x total2</ion-select-option>
-            <ion-select-option value="total3">3x total3</ion-select-option>
-            <ion-select-option value="total4">4x total4</ion-select-option>
-            <ion-select-option value="total5">5x total5</ion-select-option>
+            <ion-select-option value="total1">1x {{total1 | currency:'BRL':true:'1.2-2'}}</ion-select-option>
+            <ion-select-option value="total2">2x {{total2 | currency:'BRL':true:'1.2-2'}}</ion-select-option>
+            <ion-select-option value="total3">3x {{total3 | currency:'BRL':true:'1.2-2'}}</ion-select-option>
+            <ion-select-option value="total4">4x {{total4 | currency:'BRL':true:'1.2-2'}}</ion-select-option>
+            <ion-select-option value="total5">5x {{total5 | currency:'BRL':true:'1.2-2'}}</ion-select-option>
           </ion-select>
         </ion-item>
       </ion-col>
@@ -206,23 +246,30 @@
   <ion-card>
     <ion-row>
       <ion-col>
-        <ion-card-title class= "blackText"><b>Pague com</b></ion-card-title>
+        <ion-card-title ><b>Pague com</b></ion-card-title>
       </ion-col>
     </ion-row>
     <ion-row class="ion-align-items-center">
       <ion-col>
-        <ion-card-subtitle class= "blackText"> <strong>Forma de pagamento</strong>
+        <ion-card-subtitle > <strong>Forma de pagamento</strong>
         </ion-card-subtitle>
       </ion-col>
       <ion-col size="auto">
-        <ion-button onclick="addPay" color="success"><ion-icon slot="start" name="wallet-outline"></ion-icon>ADD</ion-button>
+        <ion-button onclick="addPay" color="primary"><ion-icon slot="start" name="wallet-outline"></ion-icon>ADD</ion-button>
       </ion-col>
     </ion-row>
-    <ion-row>
-      <ion-col></ion-col>
-      <ion-col>
-        <ion-button onclick="cupom" color="light">Inserir Cupom
-        </ion-button>
+    <ion-row class="ion-align-items-center">
+      <ion-col *ngIf = "addCupom">
+        <ion-input class="borderInput"></ion-input>
+      </ion-col>
+      <ion-col *ngIf = "addCupom" size="auto">
+        <ion-button (click)="okCupom()" color="primary"><ion-icon name="checkmark-done-outline"></ion-icon></ion-button>
+      </ion-col>
+      <ion-col *ngIf = "addCupom" size="auto">
+        <ion-button (click)="notCupom()" fill="clear"><ion-icon name="close-sharp"></ion-icon></ion-button>
+      </ion-col>
+      <ion-col *ngIf = "removeButtonCupom" size="auto">
+        <ion-button (click)="cupom()" color="light" size = "small">Inserir Cupom</ion-button>
       </ion-col>
     </ion-row>
   </ion-card>
@@ -232,7 +279,7 @@
   <ion-card class="editCard">
     <ion-row>
       <ion-col>
-        <ion-card-title class= "blackText"><b>Política de Cancelamento</b></ion-card-title>
+        <ion-card-title ><b>Política de Cancelamento</b></ion-card-title>
       </ion-col>
     </ion-row>
     <ion-row>
@@ -246,12 +293,10 @@
 <ion-grid>
   <ion-row>
     <ion-col width-50 style="text-align: center">
-      <ion-button (click)="booking()" color="success"> <ion-icon slot="start" name="lock-closed-outline"></ion-icon>Pedir para reservar
+      <ion-button (click)="booking()" color="primary"> <ion-icon slot="start" name="lock-closed-outline"></ion-icon>Pedir para reservar
     </ion-button>
   </ion-col>
   </ion-row>
 </ion-grid>
-
-
 
 </ion-content>
