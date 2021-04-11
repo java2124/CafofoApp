@@ -108,60 +108,35 @@
         <ion-button color="primary" (click) = "closed2()" size="small">Salvar</ion-button>
       </ion-col>
     </ion-row>
-    <hr color=#fff>
-    <ion-row>
-      <ion-icon name="remove-outline"></ion-icon>
-      <ion-icon name="remove-outline"></ion-icon>
-      <ion-icon name="remove-outline"></ion-icon>
-      <ion-icon name="remove-outline"></ion-icon>
-      <ion-icon name="remove-outline"></ion-icon>
-      <ion-icon name="remove-outline"></ion-icon>
-      <ion-icon name="remove-outline"></ion-icon>
-      <ion-icon name="remove-outline"></ion-icon>
-      <ion-icon name="remove-outline"></ion-icon>
-      <ion-icon name="remove-outline"></ion-icon>
-      <ion-icon name="remove-outline"></ion-icon>
-      <ion-icon name="remove-outline"></ion-icon>
-      <ion-icon name="remove-outline"></ion-icon>
-      <ion-icon name="remove-outline"></ion-icon>
-      <ion-icon name="remove-outline"></ion-icon>
-      <ion-icon name="remove-outline"></ion-icon>
-      <ion-icon name="remove-outline"></ion-icon>
-      <ion-icon name="remove-outline"></ion-icon>
-      <ion-icon name="remove-outline"></ion-icon>
-      <ion-icon name="remove-outline"></ion-icon>
-      <ion-icon name="remove-outline"></ion-icon>
-      <ion-icon name="remove-outline"></ion-icon>
-      <ion-icon name="remove-outline"></ion-icon>
-    </ion-row>
-    <ion-row class="ion-align-items-center">
-      <ion-col>
-        <h5 ><strong>Esta é uma viagem a trabalho?</strong></h5>
-      </ion-col>
-      <ion-col size= "auto">
-        <ion-toggle color="primary" [(ngModel)]="optionWork"></ion-toggle>
-      </ion-col>
-    </ion-row>
-    <ion-row  *ngIf = "optionWork" class="ion-align-items-center">
-      <ion-col>
-        <h5 class="blackText"><strong>Motivo da Viagem (opcional)</strong></h5>
-        <p color="medium">Adicione uma observação para fins de declaração de gasto.</p>
-      </ion-col>
-      <ion-col size="auto" *ngIf= "addWork">
-        <ion-button (click)="textWork()" color="primary" size="small"> <ion-icon name="add-outline" slot="start"></ion-icon>ADD</ion-button>
-      </ion-col>
-      <ion-col *ngIf = "removeWork" size="auto">
-        <ion-button (click)="textWork()" color="primary" size="small">Editar</ion-button>
-      </ion-col>
-    </ion-row>
-    <ion-row *ngIf = "textWork2 && savedWork && optionWork" class="ion-align-items-center">
-      <ion-col>
-        <ion-textarea></ion-textarea>
-      </ion-col>
-      <ion-col size="auto">
-          <ion-button (click)="saveWork()" color="primary"><ion-icon name="checkmark-done-outline"></ion-icon></ion-button>
-      </ion-col>
-    </ion-row>
+    <hr color = #000>
+      <ion-row class="ion-align-items-center">
+        <ion-col>
+          <h5 ><strong>Esta é uma viagem a trabalho?</strong></h5>
+        </ion-col>
+        <ion-col size= "auto">
+          <ion-toggle color="primary" [(ngModel)]="optionWork"></ion-toggle>
+        </ion-col>
+      </ion-row>
+      <ion-row  *ngIf = "optionWork" class="ion-align-items-center">
+        <ion-col>
+          <h5 class="blackText"><strong>Motivo da Viagem (opcional)</strong></h5>
+          <p color="medium">Adicione uma observação para fins de declaração de gasto.</p>
+        </ion-col>
+        <ion-col size="auto" *ngIf= "addWork">
+          <ion-button (click)="textWork()" color="primary" size="small"> <ion-icon name="add-outline" slot="start"></ion-icon>ADD</ion-button>
+        </ion-col>
+        <ion-col *ngIf = "removeWork" size="auto">
+          <ion-button (click)="textWork()" color="primary" size="small">Editar</ion-button>
+        </ion-col>
+      </ion-row>
+      <ion-row *ngIf = "textWork2 && savedWork && optionWork" class="ion-align-items-center">
+        <ion-col>
+          <ion-textarea></ion-textarea>
+        </ion-col>
+        <ion-col size="auto">
+            <ion-button (click)="saveWork()" color="primary"><ion-icon name="checkmark-done-outline"></ion-icon></ion-button>
+        </ion-col>
+      </ion-row>
   </ion-card>
 </ion-grid>
 
