@@ -14,7 +14,8 @@ const routes: Routes = [
   {
     path: 'booking',
     loadChildren: () => import('./booking/booking.module').then( m => m.BookingPageModule)
-  },  {
+  },
+  {
     path: 'explore',
     loadChildren: () => import('./explore/explore.module').then( m => m.ExplorePageModule)
   },
@@ -23,9 +24,13 @@ const routes: Routes = [
     loadChildren: () => import('./detalhes/detalhes.module').then( m => m.DetalhesPageModule)
   },
   {
+    path: 'login',
+    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
+  },
+  {
     path: 'dados-pessoais',
     loadChildren: () => import('./dados-pessoais/dados-pessoais.module').then( m => m.DadosPessoaisPageModule)
-  },
+  }
 
 ];
 
