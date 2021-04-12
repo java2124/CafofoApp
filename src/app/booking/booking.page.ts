@@ -22,6 +22,8 @@ export class BookingPage implements OnInit {
   public qtdGuestKids = 0;
   public textWork2 = false;
   public savedWork = true;
+  public addWork = true;
+  public removeWork = false;
   public addCupom = false;
   public removeButtonCupom = true;
   public saveGuest = true;
@@ -83,10 +85,12 @@ export class BookingPage implements OnInit {
   public textWork(){
     this.textWork2 = true;
     this.savedWork = true;
+    this.addWork = false;
   }
 
   public saveWork(){
     this.savedWork = false;
+    this.removeWork = true;
     console.log('Motivo da viagem salvo no banco de dados');
   }
 
@@ -102,6 +106,9 @@ export class BookingPage implements OnInit {
 
   public closed(){
     this.close = false;
+  }
+
+  public closed2(){
     this.saveGuest = false;
   }
 
