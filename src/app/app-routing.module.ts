@@ -8,13 +8,14 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'explore',
     pathMatch: 'full'
   },
   {
     path: 'booking',
     loadChildren: () => import('./booking/booking.module').then( m => m.BookingPageModule)
-  },  {
+  },
+  {
     path: 'explore',
     loadChildren: () => import('./explore/explore.module').then( m => m.ExplorePageModule)
   },
@@ -30,6 +31,11 @@ const routes: Routes = [
     path: 'dados-pessoais',
     loadChildren: () => import('./dados-pessoais/dados-pessoais.module').then( m => m.DadosPessoaisPageModule)
   },
+  {
+    path: 'modal-pagamento',
+    loadChildren: () => import('./modal-pagamento/modal-pagamento.module').then( m => m.ModalPagamentoPageModule)
+  },
+
 
 ];
 

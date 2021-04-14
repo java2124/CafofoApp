@@ -1,12 +1,17 @@
 <ion-header>
   <ion-row class="ion-align-items-center">
     <ion-col>
-      <div>
-        <span class="ion-float-start ion-padding">
-          <a class="arrow-button" routerLink="/detalhes"><ion-icon name="arrow-back-sharp" size="large" slot="start"></ion-icon></a>
+      <div class="ion-float-start ion-padding">
+        <span>
+          <ion-back-button defaultHref="/detalhes">
+          </ion-back-button>
         </span>
+      </div>
+    </ion-col>
+    <ion-col>
+      <div>
         <span class="ion-float-end ion-padding">
-            <ion-text class="save-button">Reserva</ion-text>
+          <ion-text class="save-button">Reserva</ion-text>
         </span>
       </div>
     </ion-col>
@@ -108,7 +113,7 @@
         <ion-button color="primary" (click) = "closed2()" size="small">Salvar</ion-button>
       </ion-col>
     </ion-row>
-    <hr color = #000>
+    <hr color = #DCDCDC>
       <ion-row class="ion-align-items-center">
         <ion-col>
           <h5 ><strong>Esta é uma viagem a trabalho?</strong></h5>
@@ -230,8 +235,13 @@
         <ion-card-subtitle > <strong>Forma de pagamento</strong>
         </ion-card-subtitle>
       </ion-col>
-      <ion-col size="auto">
-        <ion-button onclick="addPay" color="primary"><ion-icon slot="start" name="wallet-outline"></ion-icon>ADD</ion-button>
+      <ion-col size="auto" *ngIf="editAddPay">
+        <ion-button (click) = "presentModal()" color="primary"><ion-icon slot="start" name="wallet-outline"></ion-icon>ADD</ion-button>
+      </ion-col>
+      <ion-col size="auto" *ngIf="!editAddPay">
+        <ion-col  size="auto">
+          <ion-button (click)="presentModal2()" color = "primary" size="small">Editar</ion-button>
+        </ion-col>
       </ion-col>
     </ion-row>
     <ion-row class="ion-align-items-center">

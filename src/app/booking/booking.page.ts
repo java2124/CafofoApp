@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { AlertController } from '@ionic/angular';
+import { AlertController, ModalController } from '@ionic/angular';
+import { ModalPagamentoPage } from '../modal-pagamento/modal-pagamento.page';
+
 @Component({
   selector: 'app-booking',
   templateUrl: './booking.page.html',
@@ -29,7 +31,7 @@ export class BookingPage implements OnInit {
   public saveGuest = true;
 
   public priceDay = 70.00;
-  public days = Math.abs(this.finishDate.getTime() - this.initDate.getTime());
+  public days = 5;
   public priceTotalDays = this.priceDay * this.days;
   public deductionWeek = 20;
   public deductionWeekTotal = (this.priceTotalDays * (this.deductionWeek * (this.days / 7))) / 100;
@@ -42,6 +44,8 @@ export class BookingPage implements OnInit {
   public total3 = this.totalCost / 3;
   public total4 = this.totalCost / 4;
   public total5 = this.totalCost / 5;
+
+  public editAddPay = true;
 
   public addGuest(){
     this.qtdGuest += 1;
@@ -106,13 +110,14 @@ export class BookingPage implements OnInit {
 
   public closed(){
     this.close = false;
+    console.log('Data Editada, atualização do número de dias nas informações de preço');
   }
 
   public closed2(){
     this.saveGuest = false;
   }
 
-  constructor(private alertController: AlertController) { }
+  constructor(private alertController: AlertController, private modalController: ModalController) { }
 
   public async booking(){
     const alert = await this.alertController.create({
@@ -132,6 +137,21 @@ export class BookingPage implements OnInit {
       buttons: ['Sair']
     });
     alert.present();
+  }
+
+  public async presentModal() {
+    this.editAddPay = false;
+    const modal = await this.modalController.create({
+    component: ModalPagamentoPage
+    });
+    return await modal.present();
+  }
+
+  public async presentModal2() {
+    const modal = await this.modalController.create({
+    component: ModalPagamentoPage
+    });
+    return await modal.present();
   }
 
    ngOnInit() {
