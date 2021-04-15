@@ -1,11 +1,13 @@
 <ion-header>
   
   <ion-toolbar color= "black">
-    <ion-searchbar placeholder="Para onde você vai?" animated ></ion-searchbar>
+    <ion-searchbar (ionFocus)="setShowSearch(true)" (ionBlur)="setShowSearch(false)" placeholder="Para onde você vai?" [(ngModel)]="pesquisa" showCancelButton="focus"></ion-searchbar>
   </ion-toolbar>
+
 </ion-header>
 
 <ion-content>
+  <div *ngIf="!ShowSearch">  
  <div class="card-lg">
   <ion-row>
     <ion-col size="auto">
@@ -18,122 +20,154 @@
     </ion-col>
   </ion-row>
 </div>
-<h1>&nbsp;Sujestões&nbsp;</h1>
 
-<ion-slides [options]="slideOpts">
-  <ion-slide>
-    <ion-row>
-      <ion-col>
-      
-      <ion-item>
-        <ion-avatar slot="start">
-          <img src="https://www.flaticon.com/svg/vstatic/svg/3175/3175201.svg?token=exp=1618157436~hmac=0157e51120548793c5d82f6fd7400c60">
-        </ion-avatar>
-        <ion-label>São Sebastião</ion-label>
-      </ion-item> 
 
-      </ion-col>
-      <ion-col>
+  <h1>&nbsp;Sujestões&nbsp;</h1>
+
+  <ion-slides [options]="slideOpts">
+    <ion-slide>
+      <ion-row>
+        <ion-col>
+        
         <ion-item>
           <ion-avatar slot="start">
-            <img src="https://www.flaticon.com/svg/vstatic/svg/3175/3175199.svg?token=exp=1618170768~hmac=51e2c188d800829f424f820a2a96abf5">
+            <img src="https://www.flaticon.com/svg/vstatic/svg/119/119598.svg?token=exp=1618501762~hmac=23df19d38bfc1d2cb655bfd63d1d4030">
           </ion-avatar>
-          <ion-label>Guarujá</ion-label>
-        </ion-item>
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col>
-      
-      <ion-item>
-        <ion-avatar slot="start">
-          <img src="https://www.flaticon.com/svg/vstatic/svg/3175/3175239.svg?token=exp=1618170951~hmac=2f057f132c579112c8057bae738614f4">
-        </ion-avatar>
-        <ion-label>Campos do Jordão</ion-label>
-      </ion-item> 
+          <ion-label>São Sebastião</ion-label>
+        </ion-item> 
 
-      </ion-col>
-      <ion-col>
+        </ion-col>
+        <ion-col>
+          <ion-item>
+            <ion-avatar slot="start">
+              <img src="https://www.flaticon.com/svg/vstatic/svg/119/119598.svg?token=exp=1618501762~hmac=23df19d38bfc1d2cb655bfd63d1d4030">
+            </ion-avatar>
+            <ion-label>Guarujá</ion-label>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+        
         <ion-item>
           <ion-avatar slot="start">
-            <img src="https://www.flaticon.com/svg/vstatic/svg/3175/3175153.svg?token=exp=1618171049~hmac=549e90bda994532aafba259b1ab0ec0b">
+            <img src="https://www.flaticon.com/svg/vstatic/svg/119/119598.svg?token=exp=1618501762~hmac=23df19d38bfc1d2cb655bfd63d1d4030">
           </ion-avatar>
-          <ion-label>Paraty</ion-label>
-        </ion-item>
-      </ion-col>
-    </ion-row>
-  </ion-slide>
-  <ion-slide>
-    <ion-row>
-      <ion-col>
-      
-      <ion-item>
-        <ion-avatar slot="start">
-          <img src="https://www.flaticon.com/svg/vstatic/svg/3175/3175163.svg?token=exp=1618171191~hmac=12d137e8e8333a9f173013a1093e1cf6">
-        </ion-avatar>
-        <ion-label>São Roque</ion-label>
-      </ion-item> 
+          <ion-label>Campos do Jordão</ion-label>
+        </ion-item> 
 
-      </ion-col>
-      <ion-col>
+        </ion-col>
+        <ion-col>
+          <ion-item>
+            <ion-avatar slot="start">
+              <img src="https://www.flaticon.com/svg/vstatic/svg/119/119598.svg?token=exp=1618501762~hmac=23df19d38bfc1d2cb655bfd63d1d4030">
+            </ion-avatar>
+            <ion-label>Paraty</ion-label>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </ion-slide>
+    <ion-slide>
+      <ion-row>
+        <ion-col>
+        
         <ion-item>
           <ion-avatar slot="start">
-            <img src="https://www.flaticon.com/svg/vstatic/svg/3175/3175138.svg?token=exp=1618171216~hmac=40d59c647e40d77581036c584fb9c7e5">
+            <img src="https://www.flaticon.com/svg/vstatic/svg/119/119598.svg?token=exp=1618501762~hmac=23df19d38bfc1d2cb655bfd63d1d4030">
           </ion-avatar>
-          <ion-label>Socorro</ion-label>
-        </ion-item>
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col>
-      
-      <ion-item>
-        <ion-avatar slot="start">
-          <img src="https://www.flaticon.com/svg/vstatic/svg/3175/3175170.svg?token=exp=1618171751~hmac=32d87c9b0a68a9ea46900d502baa18f4  ">
-        </ion-avatar>
-        <ion-label>Santos</ion-label>
-      </ion-item> 
+          <ion-label>São Roque</ion-label>
+        </ion-item> 
 
-      </ion-col>
-      <ion-col>
+        </ion-col>
+        <ion-col>
+          <ion-item>
+            <ion-avatar slot="start">
+              <img src="https://www.flaticon.com/svg/vstatic/svg/3175/3175138.svg?token=exp=1618171216~hmac=40d59c647e40d77581036c584fb9c7e5">
+            </ion-avatar>
+            <ion-label>Socorro</ion-label>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+        
         <ion-item>
           <ion-avatar slot="start">
-            <img src="https://www.flaticon.com/svg/vstatic/svg/3175/3175218.svg?token=exp=1618171686~hmac=fde08e068ad340a3e358bb7900469f30">
+            <img src="https://www.flaticon.com/svg/vstatic/svg/3175/3175170.svg?token=exp=1618171751~hmac=32d87c9b0a68a9ea46900d502baa18f4  ">
           </ion-avatar>
-          <ion-label>Campinas</ion-label>
-        </ion-item>
-      </ion-col>
-    </ion-row>
-  </ion-slide>
-</ion-slides>
+          <ion-label>Santos</ion-label>
+        </ion-item> 
 
-<h1>&nbsp;Lugares mais procurados&nbsp;</h1>
+        </ion-col>
+        <ion-col>
+          <ion-item>
+            <ion-avatar slot="start">
+              <img src="https://www.flaticon.com/svg/vstatic/svg/3175/3175218.svg?token=exp=1618171686~hmac=fde08e068ad340a3e358bb7900469f30">
+            </ion-avatar>
+            <ion-label>Campinas</ion-label>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </ion-slide>
+  </ion-slides>
 
-<ion-slides [options]="slideOpts">
-  <ion-slide>
-    <ion-card>
-      <ion-img src="https://images.pexels.com/photos/209315/pexels-photo-209315.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"></ion-img>
-      <hr>
-      <ion-card-title>Casa Floresta Encantada</ion-card-title>
-      <ion-card-subtitle><ion-icon name="map-outline" color="primary"></ion-icon>São Roque &nbsp;<ion-icon name="star" color="primary"></ion-icon>4,86 &nbsp; <ion-icon name="diamond-outline" color="primary"></ion-icon>Superhost</ion-card-subtitle>
-    </ion-card>
-  </ion-slide>
-  <ion-slide>
-    <ion-card>
-      <ion-img src="https://images.pexels.com/photos/277667/pexels-photo-277667.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"></ion-img>
-      <hr>
-      <ion-card-title>Casa Rio Pequeno</ion-card-title>
-      <ion-card-subtitle><ion-icon name="map-outline" color="primary"></ion-icon>Guarujá &nbsp; <ion-icon name="star" color="primary"></ion-icon>4,90 &nbsp; <ion-icon name="diamond-outline" color="primary"></ion-icon>Superhost</ion-card-subtitle>
-    </ion-card>
-  </ion-slide>
-  <ion-slide>
-    <ion-card>
-      <ion-img src="https://images.pexels.com/photos/1029599/pexels-photo-1029599.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"></ion-img>
-      <hr>
-      <ion-card-title>Casa Bosque das Flores</ion-card-title>
-      <ion-card-subtitle><ion-icon name="map-outline" color="primary"></ion-icon>Santos &nbsp; <ion-icon name="star" color="primary"></ion-icon>4,75 &nbsp; <ion-icon name="diamond-outline" color="primary"></ion-icon>Superhost</ion-card-subtitle>
-    </ion-card>
-  </ion-slide>
-</ion-slides>
-<h6 class="cd19-news"><a href="">Confira as últimas informações sobre nossas respostas à COVID-19</a></h6>
+  <h1>&nbsp;Lugares mais procurados&nbsp;</h1>
+
+  <ion-slides [options]="slideOpts">
+    <ion-slide>
+      <ion-card>
+        <ion-img src="https://images.pexels.com/photos/209315/pexels-photo-209315.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"></ion-img>
+        <hr>
+        <ion-card-title>Casa Floresta Encantada</ion-card-title>
+        <ion-card-subtitle><ion-icon name="map-outline" color="primary"></ion-icon>São Roque &nbsp;<ion-icon name="star" color="primary"></ion-icon>4.86 &nbsp; <ion-icon name="diamond-outline" color="primary"></ion-icon>Superhost</ion-card-subtitle>
+      </ion-card>
+    </ion-slide>
+    <ion-slide>
+      <ion-card>
+        <ion-img src="https://images.pexels.com/photos/277667/pexels-photo-277667.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"></ion-img>
+        <hr>
+        <ion-card-title>Casa Rio Pequeno</ion-card-title>
+        <ion-card-subtitle><ion-icon name="map-outline" color="primary"></ion-icon>Guarujá &nbsp; <ion-icon name="star" color="primary"></ion-icon>4.90 &nbsp; <ion-icon name="diamond-outline" color="primary"></ion-icon>Superhost</ion-card-subtitle>
+      </ion-card>
+    </ion-slide>
+    <ion-slide>
+      <ion-card>
+        <ion-img src="https://images.pexels.com/photos/1029599/pexels-photo-1029599.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"></ion-img>
+        <hr>
+        <ion-card-title>Casa Bosque das Flores</ion-card-title>
+        <ion-card-subtitle><ion-icon name="map-outline" color="primary"></ion-icon>Santos &nbsp; <ion-icon name="star" color="primary"></ion-icon>3.98 &nbsp; <ion-icon name="diamond-outline" color="primary"></ion-icon>Superhost</ion-card-subtitle>
+      </ion-card>
+    </ion-slide>
+  </ion-slides>
+
+</div>
+  <ion-list *ngIf="ShowSearch">
+    
+    <ion-item *ngFor="let casa of casas" > 
+      <ion-card routerLink= "/login">
+        <ion-card-header>
+          <ion-card-subtitle><a href="https://www.w3schools.com/html/html_links.asp">teste</a></ion-card-subtitle>
+          <ion-card-title>{{casa.name}}</ion-card-title>
+        </ion-card-header>
+      
+        <ion-card-content>
+          Keep close to Nature's heart... and break clear away, once in awhile,
+          and climb a mountain or spend a week in the woods. Wash your spirit clean.
+        </ion-card-content>
+      </ion-card>
+
+    </ion-item>
+  </ion-list>
+  <h6 class="cd19-news"><a href="">Confira as últimas informações sobre nossas respostas à COVID-19</a></h6>
 </ion-content>
+
+<ion-footer>
+  <ion-segment>
+    <ion-segment-button routerLink= "/dados-pessoais">
+      <ion-icon name="person-circle-outline"></ion-icon>
+    </ion-segment-button>
+    <ion-segment-button routerLink= "/login">
+      <ion-icon name="log-out-outline"></ion-icon>
+    </ion-segment-button>
+  </ion-segment>
+</ion-footer>
