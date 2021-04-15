@@ -8,7 +8,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'explore',
+    redirectTo: 'login',
     pathMatch: 'full'
   },
   {
@@ -35,6 +35,15 @@ const routes: Routes = [
     path: 'modal-pagamento',
     loadChildren: () => import('./modal-pagamento/modal-pagamento.module').then( m => m.ModalPagamentoPageModule)
   },
+  {
+    path: 'cadastro',
+    loadChildren: () => import('./cadastro/cadastro.module').then( m => m.CadastroPageModule)
+  },
+  {
+    path: 'autenticacao',
+    loadChildren: () => import('./autenticacao/autenticacao.module').then( m => m.AutenticacaoPageModule)
+  },
+
 
 
 ];
