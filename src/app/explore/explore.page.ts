@@ -12,7 +12,7 @@ interface Acomodacao {
   qtdBanheiro: number;
   precoDia: number;
   locais:cidades;
-  //foto:src
+  foto:String
 }
 
 @Component({
@@ -35,7 +35,7 @@ export class ExplorePage implements OnInit {
       qtdBanheiro: 3,
       precoDia: 70.00,
       locais:'São Roque',
-     // foto: https://images.pexels.com/photos/6249814/pexels-photo-6249814.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940
+      foto: 'https://images.pexels.com/photos/6249814/pexels-photo-6249814.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
     },
     {
       name: 'Casa Rio Pequeno',
@@ -45,7 +45,7 @@ export class ExplorePage implements OnInit {
       qtdBanheiro: 2,
       precoDia: 55.00,
       locais:'Guaruja',
-      //foto:https://images.pexels.com/photos/6249814/pexels-photo-6249814.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940
+      foto: 'https://images.pexels.com/photos/6249814/pexels-photo-6249814.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
     },
     {
       name: 'Casa Bosque das Flores',
@@ -55,7 +55,7 @@ export class ExplorePage implements OnInit {
       qtdBanheiro: 3,
       precoDia: 75.00,
       locais:'Santos',
-      //foto:https://images.pexels.com/photos/6249814/pexels-photo-6249814.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940
+      foto: 'https://images.pexels.com/photos/6249814/pexels-photo-6249814.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
     },
     {
       name: 'Casa Copacabana',
@@ -65,7 +65,7 @@ export class ExplorePage implements OnInit {
       qtdBanheiro: 3,
       precoDia: 75.00,
       locais:'Rio de Janeiro',
-     // foto:https://images.pexels.com/photos/6249814/pexels-photo-6249814.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940
+      foto: 'https://images.pexels.com/photos/6249814/pexels-photo-6249814.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
     }
   ]
 
