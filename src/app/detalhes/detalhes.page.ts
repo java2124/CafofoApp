@@ -13,20 +13,5 @@ export class DetalhesPage implements OnInit {
 
   constructor(private alertController: AlertController) { }
 
-  public async detalhes(){
-    const alert = await this.alertController.create({
-      header: 'Deseja seguir para o pagamento?',
-      buttons: ['Sim']
-      });
-      alert.present();
- }
-
- public async voltar(){
-  const alert = await this.alertController.create({
-    header: 'Deseja voltar ao explorar?',
-    buttons: ['Sim']
-    });
-    alert.present();
-  }
 
 }

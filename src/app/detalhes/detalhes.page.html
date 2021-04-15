@@ -1,8 +1,21 @@
 <ion-header>
-  <ion-toolbar color = "light">
-    <ion-icon slot="start" name="chevron-forward-outline"></ion-icon>
-    <ion-title color= "medium">Detalhes Casa na floresta em São Roque</ion-title>
-  </ion-toolbar>
+  <ion-row class="ion-align-items-center">
+    <ion-col>
+      <div class="ion-float-start ion-padding">
+        <span>
+          <ion-back-button defaultHref="/explore">
+          </ion-back-button>
+        </span>
+      </div>
+    </ion-col>
+    <ion-col>
+      <div>
+        <span class="ion-float-end ion-padding">
+          <ion-text class="save-button">Explorar</ion-text>
+        </span>
+      </div>
+    </ion-col>
+  </ion-row>
 </ion-header>
 
 <ion-content>
@@ -78,10 +91,7 @@
 <ion-grid>
   <ion-row>
     <ion-col width-50 style="text-align: center">
-      <ion-button (click)="voltar()" color="danger"> Voltar</ion-button>
-    </ion-col>
-    <ion-col width-50 style="text-align: center">
-      <ion-button (click)="detalhes()" color="success"> Confirmar</ion-button>
+      <ion-button onclick="location.href = 'booking';" class="float-left submit-button" >reservar</ion-button>
     </ion-col>
   </ion-row>
 </ion-grid>
