@@ -16,3 +16,12 @@ searchbar.icon{
 .cd19-news{
 text-align: center;
 }
+
+ion-searchbar {
+    --border-radius: 2px;
+    --box-shadow: 2px;
+    --cancel-button-color: #f74053;
+    --clear-button-color: #f74053;
+    --color: #f74053;
+    --icon-color: #f74053;
+}
