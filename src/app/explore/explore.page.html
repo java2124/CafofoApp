@@ -1,7 +1,12 @@
 <ion-header>
   
   <ion-toolbar color= "black">
-    <ion-searchbar (ionFocus)="setShowSearch(true)" (ionBlur)="setShowSearch(false)" placeholder="Para onde você vai?" [(ngModel)]="pesquisa" showCancelButton="focus"></ion-searchbar>
+    <ion-searchbar (ionFocus)="setShowSearch(true)" (ionBlur)="setShowSearch(false)" placeholder="Para onde você vai?" 
+                    [(ngModel)]="queryText" 
+                    (ionInput)="FilterCidade($event)" 
+                    showCancelButton ="focus"
+                    clearInput>
+    </ion-searchbar>
   </ion-toolbar>
 
 </ion-header>
@@ -143,17 +148,16 @@
 </div>
   <ion-list *ngIf="ShowSearch">
     
-    <ion-item *ngFor="let casa of casas" > 
+    <ion-item *ngFor="let cidade of cidades" > 
       <ion-card routerLink= "/login">
         <ion-card-header>
-          <ion-card-subtitle><a href="https://www.w3schools.com/html/html_links.asp">teste</a></ion-card-subtitle>
-          <ion-card-title>{{casa.name}}</ion-card-title>
-          <ion-img src="{{casa.foto}}"></ion-img>
+          <ion-card-title>{{cidade.name}}</ion-card-title>
+          <ion-card-subtitle>{{cidade.locais}}</ion-card-subtitle>
+          <ion-img src="{{cidade.foto}}"></ion-img>
         </ion-card-header>
       
         <ion-card-content>
-          Keep close to Nature's heart... and break clear away, once in awhile,
-          and climb a mountain or spend a week in the woods. Wash your spirit clean.
+          {{cidade.descricao}}
         </ion-card-content>
       </ion-card>
 
@@ -172,3 +176,4 @@
     </ion-segment-button>
   </ion-segment>
 </ion-footer>
+<script src="lodash.js"></script>
