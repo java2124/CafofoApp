@@ -1,10 +1,10 @@
 <ion-header>
   
   <ion-toolbar color= "black">
-    <ion-searchbar (ionFocus)="setShowSearch(true)" (ionBlur)="setShowSearch(false)" placeholder="Para onde você vai?" 
+    <ion-searchbar (ionFocus)="setShowSearch(true)" placeholder="Para onde você vai?" 
                     [(ngModel)]="queryText" 
                     (ionInput)="FilterCidade($event)" 
-                    showCancelButton ="focus"
+                    showCancelButton ="blur"
                     clearInput>
     </ion-searchbar>
   </ion-toolbar>
@@ -36,7 +36,8 @@
         
         <ion-item>
           <ion-avatar slot="start">
-            <img src="https://www.flaticon.com/svg/vstatic/svg/119/119598.svg?token=exp=1618501762~hmac=23df19d38bfc1d2cb655bfd63d1d4030">
+            
+            <img src="https://www.flaticon.com/svg/vstatic/svg/3175/3175132.svg?token=exp=1618583221~hmac=ee105f03e7a7af797b800e5e87ccb84b">
           </ion-avatar>
           <ion-label>São Sebastião</ion-label>
         </ion-item> 
@@ -45,7 +46,7 @@
         <ion-col>
           <ion-item>
             <ion-avatar slot="start">
-              <img src="https://www.flaticon.com/svg/vstatic/svg/119/119598.svg?token=exp=1618501762~hmac=23df19d38bfc1d2cb655bfd63d1d4030">
+              <img src="https://www.flaticon.com/svg/vstatic/svg/3175/3175218.svg?token=exp=1618583221~hmac=811503a41765de4ef6130cf218e13cd4">
             </ion-avatar>
             <ion-label>Guarujá</ion-label>
           </ion-item>
@@ -56,7 +57,7 @@
         
         <ion-item>
           <ion-avatar slot="start">
-            <img src="https://www.flaticon.com/svg/vstatic/svg/119/119598.svg?token=exp=1618501762~hmac=23df19d38bfc1d2cb655bfd63d1d4030">
+            <img src="https://www.flaticon.com/svg/vstatic/svg/3175/3175239.svg?token=exp=1618583221~hmac=bcda38342b5a911f8fc13411f5cc1d24">
           </ion-avatar>
           <ion-label>Campos do Jordão</ion-label>
         </ion-item> 
@@ -98,7 +99,7 @@
         
         <ion-item>
           <ion-avatar slot="start">
-            <img src="https://www.flaticon.com/svg/vstatic/svg/3175/3175170.svg?token=exp=1618171751~hmac=32d87c9b0a68a9ea46900d502baa18f4  ">
+            <img src="https://www.flaticon.com/svg/vstatic/svg/3175/3175199.svg?token=exp=1618583017~hmac=40abb3f05825308f45998e5fe098cdb4">
           </ion-avatar>
           <ion-label>Santos</ion-label>
         </ion-item> 
@@ -149,16 +150,15 @@
   <ion-list *ngIf="ShowSearch">
     
     <ion-item *ngFor="let cidade of cidades" > 
-      <ion-card routerLink= "/login">
-        <ion-card-header>
+      <ion-card>
+        <ion-img src="{{cidade.foto}}"></ion-img>
+          <hr>
           <ion-card-title>{{cidade.name}}</ion-card-title>
-          <ion-card-subtitle>{{cidade.locais}}</ion-card-subtitle>
-          <ion-img src="{{cidade.foto}}"></ion-img>
-        </ion-card-header>
-      
+          <ion-card-subtitle><ion-icon name="map-outline" color="primary"></ion-icon>{{cidade.locais}} &nbsp; <ion-icon name="star" color="primary"></ion-icon> {{cidade.nota}}</ion-card-subtitle>      
         <ion-card-content>
           {{cidade.descricao}}
         </ion-card-content>
+        <ion-button routerLink="/detalhes">Ver Detalhes</ion-button>
       </ion-card>
 
     </ion-item>

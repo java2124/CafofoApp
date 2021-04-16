@@ -42,7 +42,7 @@ export class ExplorePage {
         qtdBanheiro: 3,
         precoDia: 70.00,
         locais:'São Roque',
-        foto: 'https://images.pexels.com/photos/6249814/pexels-photo-6249814.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
+        foto: 'https://images.pexels.com/photos/209315/pexels-photo-209315.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
       },
       {
         name: 'Casa Rio Pequeno',
@@ -52,7 +52,7 @@ export class ExplorePage {
         qtdBanheiro: 2,
         precoDia: 55.00,
         locais:'Guaruja',
-        foto: 'https://images.pexels.com/photos/6249814/pexels-photo-6249814.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
+        foto: 'https://images.pexels.com/photos/277667/pexels-photo-277667.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
       },
       {
         name: 'Casa Bosque das Flores',
@@ -62,7 +62,7 @@ export class ExplorePage {
         qtdBanheiro: 3,
         precoDia: 75.00,
         locais:'Santos',
-        foto: 'https://images.pexels.com/photos/6249814/pexels-photo-6249814.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
+        foto: 'https://images.pexels.com/photos/1029599/pexels-photo-1029599.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
       },
       {
         name: 'Casa Copacabana',
@@ -72,7 +72,7 @@ export class ExplorePage {
         qtdBanheiro: 3,
         precoDia: 75.00,
         locais:'Rio de Janeiro',
-        foto: 'https://images.pexels.com/photos/6249814/pexels-photo-6249814.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
+        foto: 'https://images.pexels.com/photos/1488327/pexels-photo-1488327.png?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
       }
     ];
 
