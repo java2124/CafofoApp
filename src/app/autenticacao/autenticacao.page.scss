@@ -1,5 +1,5 @@
 .background{
-  background-color: #d3d3d3 !important;
+  background-color: #fff !important;
   height: 100% !important;
   width: 100% !important;
 }
@@ -25,6 +25,25 @@ ion-header h1 {
 
 .arrow-button {
   font-size: 2em;
-  color: #fff;
+  color: #000;
   text-decoration: none;
 }
+
+ion-input {
+  color: black;
+  margin-top: 10px;
+  padding: 10px;
+  width: 100%;
+  border-radius: 8px;
+}
+
+ion-header {
+  background-color: #ff4961;
+}
+
+.save-button {
+  font-size: 1.5em;
+  text-decoration: none;
+  color: danger;
+}
+

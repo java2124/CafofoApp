@@ -3,7 +3,7 @@
     <ion-col>
       <div class="ion-float-start ion-padding">
         <span>
-          <ion-back-button defaultHref="/detalhes">
+          <ion-back-button color="dark" class="save-button" defaultHref="/detalhes">
           </ion-back-button>
         </span>
       </div>
@@ -11,7 +11,7 @@
     <ion-col>
       <div>
         <span class="ion-float-end ion-padding">
-          <ion-text class="save-button">Reserva</ion-text>
+          <ion-text color="dark" class="save-button">Reserva</ion-text>
         </span>
       </div>
     </ion-col>
@@ -20,269 +20,295 @@
 
 <ion-content>
 
-<ion-grid>
-  <ion-card>
-    <ion-row class="ion-align-items-center">
-      <ion-col size="auto">
-        <ion-avatar >
-          <ion-img src= "https://images.pexels.com/photos/209315/pexels-photo-209315.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"></ion-img>
-        </ion-avatar>
-      </ion-col>
-      <ion-col size= "auto" >
-            <ion-text class= "medium">{{descriptionHouse}}</ion-text>
-            <strong></strong>
-            <ion-card-title ><strong>{{nameHouse}}</strong></ion-card-title >
-              <strong></strong>
-            <ion-card-subtitle color= "medium">{{detailsHouse}}</ion-card-subtitle>
-              <strong></strong>
+  <ion-grid>
+    <ion-card class="ion-padding">
+      <ion-row class="ion-align-items-center">
+        <ion-col size="auto">
+          <ion-avatar>
+            <ion-img
+              src="https://images.pexels.com/photos/209315/pexels-photo-209315.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940">
+            </ion-img>
+          </ion-avatar>
+        </ion-col>
+        <ion-col size="auto">
+          <ion-text class="medium">{{descriptionHouse}}</ion-text>
+          <strong></strong>
+          <ion-card-title><strong>{{nameHouse}}</strong></ion-card-title>
+          <strong></strong>
+          <ion-card-subtitle color="medium">{{detailsHouse}}</ion-card-subtitle>
+          <strong></strong>
           <ion-row>
             <ion-col size="auto">
-              <ion-icon name="star" color="primary"></ion-icon>
+              <ion-icon name="star" color="danger"></ion-icon>
               <ion-text><strong>{{avaliationHouse}}</strong></ion-text>
             </ion-col>
             <ion-col size="auto">
-              <ion-icon name="diamond-outline" color="primary"></ion-icon>
+              <ion-icon name="diamond-outline" color="danger"></ion-icon>
               <ion-text color="medium"><strong>Superhost</strong></ion-text>
             </ion-col>
           </ion-row>
-      </ion-col>
-    </ion-row>
-  </ion-card>
-</ion-grid>
-
-<ion-grid>
-  <ion-card>
-    <ion-row class="ion-align-items-center">
-      <ion-col>
-        <ion-card-title ><strong> Sua viagem</strong></ion-card-title>
-      </ion-col>
-    </ion-row>
-    <ion-row class="ion-align-items-center">
-      <ion-col>
-        <h5 ><strong>Datas</strong></h5>
-        <ion-text color="medium"> {{initDate | date}} <strong>até</strong> {{finishDate | date}}</ion-text>
-      </ion-col>
-      <ion-col  size="auto">
-        <ion-button (click)="editDate()" color = "primary" size="small">Editar</ion-button>
-      </ion-col>
-    </ion-row>
-    <ion-row *ngIf="editDate2 && close" class="ion-align-items-center">
-      <ion-col>
-        <ion-datetime displayFormat="DD MM YY" placeholder="Check-in" [(ngModel)] = "initDate"></ion-datetime>
-        <hr color=#fff>
-        <ion-datetime displayFormat="DD MM YY"  placeholder="Check-out" [(ngModel)] = "finishDate"></ion-datetime>
-      </ion-col>
-      <ion-col size="auto">
-        <ion-button (click) = "closed()" fill="clear"><ion-icon name="close-sharp"></ion-icon></ion-button>
-      </ion-col>
-    </ion-row>
-    <ion-row class="ion-align-items-center">
-      <ion-col>
-        <h5 ><strong>Hóspedes</strong></h5>
-        <ion-text color= "medium">{{qtdGuest}} Adultos . {{qtdGuestKids}} Crianças</ion-text>
-      </ion-col>
-      <ion-col size="auto">
-        <ion-button (click)="editGuest()" color = "primary" size="small">Editar</ion-button>
-      </ion-col>
-    </ion-row>
-    <ion-row *ngIf="editGuest2 && saveGuest" class="ion-align-items-center">
-      <ion-col>
-        <ion-text><strong>Adultos</strong></ion-text>
-      </ion-col>
-      <ion-col size="auto">
-        <ion-button fill="clear" (click) = "removeGuest()"><ion-icon name="remove-circle-outline"></ion-icon></ion-button>
-        <ion-text>{{qtdGuest}}</ion-text>
-        <ion-button fill="clear" (click) = "addGuest()"><ion-icon name="add-circle-outline"></ion-icon></ion-button>
-      </ion-col>
-    </ion-row>
-    <ion-row *ngIf="editGuest2 && saveGuest">
-      <ion-col>
-        <ion-text><strong>Crianças</strong></ion-text>
-      </ion-col>
-      <ion-col size="auto" class="ion-align-items-center">
-        <ion-button fill="clear" (click) = "removeGuestKids()"><ion-icon name="remove-circle-outline"></ion-icon></ion-button>
-        <ion-text>{{qtdGuestKids}}</ion-text>
-        <ion-button fill="clear" (click) = "addGuestKids()"><ion-icon name="add-circle-outline"></ion-icon></ion-button>
-      </ion-col>
-    </ion-row>
-    <ion-row *ngIf="editGuest2 && saveGuest" class="ion-align-items-center">
-      <ion-col>
-        <ion-button fill="clear" (click) = "clear()" size="small">Limpar</ion-button>
-      </ion-col>
-      <ion-col size="auto">
-        <ion-button color="primary" (click) = "closed2()" size="small">Salvar</ion-button>
-      </ion-col>
-    </ion-row>
-    <hr color = #DCDCDC>
-      <ion-row class="ion-align-items-center">
-        <ion-col>
-          <h5 ><strong>Esta é uma viagem a trabalho?</strong></h5>
-        </ion-col>
-        <ion-col size= "auto">
-          <ion-toggle color="primary" [(ngModel)]="optionWork"></ion-toggle>
         </ion-col>
       </ion-row>
-      <ion-row  *ngIf = "optionWork" class="ion-align-items-center">
+    </ion-card>
+  </ion-grid>
+
+  <ion-grid>
+    <ion-card class="ion-padding">
+      <ion-row class="ion-align-items-center">
+        <ion-col>
+          <ion-card-title><strong> Sua viagem</strong></ion-card-title>
+        </ion-col>
+      </ion-row>
+      <ion-row class="ion-align-items-center">
+        <ion-col>
+          <h5><strong>Datas</strong></h5>
+          <ion-text color="medium"> {{initDate | date}} <strong>até</strong> {{finishDate | date}}</ion-text>
+        </ion-col>
+        <ion-col size="auto">
+          <ion-button (click)="editDate()" color="danger" size="small">Editar</ion-button>
+        </ion-col>
+      </ion-row>
+      <ion-row *ngIf="editDate2 && close" class="ion-align-items-center">
+        <ion-col>
+          <ion-datetime displayFormat="DD MM YY" placeholder="Check-in" [(ngModel)]="initDate"></ion-datetime>
+          <hr color=#fff>
+          <ion-datetime displayFormat="DD MM YY" placeholder="Check-out" [(ngModel)]="finishDate"></ion-datetime>
+        </ion-col>
+        <ion-col size="auto">
+          <ion-button color="danger" (click)="closed()" fill="clear">
+            <ion-icon name="close-sharp"></ion-icon>
+          </ion-button>
+        </ion-col>
+      </ion-row>
+      <ion-row class="ion-align-items-center">
+        <ion-col>
+          <h5><strong>Hóspedes</strong></h5>
+          <ion-text color="medium">{{qtdGuest}} Adultos . {{qtdGuestKids}} Crianças</ion-text>
+        </ion-col>
+        <ion-col size="auto">
+          <ion-button (click)="editGuest()" color="danger" size="small">Editar</ion-button>
+        </ion-col>
+      </ion-row>
+      <ion-row *ngIf="editGuest2 && saveGuest" class="ion-align-items-center">
+        <ion-col>
+          <ion-text><strong>Adultos</strong></ion-text>
+        </ion-col>
+        <ion-col size="auto">
+          <ion-button color="danger" fill="clear" (click)="removeGuest()">
+            <ion-icon name="remove-circle-outline"></ion-icon>
+          </ion-button>
+          <ion-text>{{qtdGuest}}</ion-text>
+          <ion-button color="danger" fill="clear" (click)="addGuest()">
+            <ion-icon name="add-circle-outline"></ion-icon>
+          </ion-button>
+        </ion-col>
+      </ion-row>
+      <ion-row *ngIf="editGuest2 && saveGuest">
+        <ion-col>
+          <ion-text><strong>Crianças</strong></ion-text>
+        </ion-col>
+        <ion-col size="auto" class="ion-align-items-center">
+          <ion-button color="danger" fill="clear" (click)="removeGuestKids()">
+            <ion-icon name="remove-circle-outline"></ion-icon>
+          </ion-button>
+          <ion-text>{{qtdGuestKids}}</ion-text>
+          <ion-button color="danger" fill="clear" (click)="addGuestKids()">
+            <ion-icon name="add-circle-outline"></ion-icon>
+          </ion-button>
+        </ion-col>
+      </ion-row>
+      <ion-row *ngIf="editGuest2 && saveGuest" class="ion-align-items-center">
+        <ion-col>
+          <ion-button color="danger" fill="clear" (click)="clear()" size="small">Limpar</ion-button>
+        </ion-col>
+        <ion-col size="auto">
+          <ion-button color="danger" (click)="closed2()" size="small">Salvar</ion-button>
+        </ion-col>
+      </ion-row>
+      <hr color=#DCDCDC>
+      <ion-row class="ion-align-items-center">
+        <ion-col>
+          <h5><strong>Esta é uma viagem a trabalho?</strong></h5>
+        </ion-col>
+        <ion-col size="auto">
+          <ion-toggle color="danger" [(ngModel)]="optionWork"></ion-toggle>
+        </ion-col>
+      </ion-row>
+      <ion-row *ngIf="optionWork" class="ion-align-items-center">
         <ion-col>
           <h5 class="blackText"><strong>Motivo da Viagem (opcional)</strong></h5>
           <p color="medium">Adicione uma observação para fins de declaração de gasto.</p>
         </ion-col>
-        <ion-col size="auto" *ngIf= "addWork">
-          <ion-button (click)="textWork()" color="primary" size="small"> <ion-icon name="add-outline" slot="start"></ion-icon>ADD</ion-button>
+        <ion-col size="auto" *ngIf="addWork">
+          <ion-button (click)="textWork()" color="danger" size="small">
+            <ion-icon name="add-outline" slot="start"></ion-icon>ADD
+          </ion-button>
         </ion-col>
-        <ion-col *ngIf = "removeWork" size="auto">
-          <ion-button (click)="textWork()" color="primary" size="small">Editar</ion-button>
+        <ion-col *ngIf="removeWork" size="auto">
+          <ion-button (click)="textWork()" color="danger" size="small">Editar</ion-button>
         </ion-col>
       </ion-row>
-      <ion-row *ngIf = "textWork2 && savedWork && optionWork" class="ion-align-items-center">
+      <ion-row *ngIf="textWork2 && savedWork && optionWork" class="ion-align-items-center">
         <ion-col>
-          <ion-textarea></ion-textarea>
+          <ion-textarea class="ion-padding"></ion-textarea>
         </ion-col>
         <ion-col size="auto">
-            <ion-button (click)="saveWork()" color="primary"><ion-icon name="checkmark-done-outline"></ion-icon></ion-button>
+          <ion-button (click)="saveWork()" color="danger">
+            <ion-icon name="checkmark-done-outline"></ion-icon>
+          </ion-button>
         </ion-col>
       </ion-row>
-  </ion-card>
-</ion-grid>
+    </ion-card>
+  </ion-grid>
 
-<ion-grid>
-  <ion-card>
-    <ion-row>
-      <ion-col>
-        <ion-card-title><strong> Informações de preço</strong></ion-card-title>
-      </ion-col>
-    </ion-row>
-    <hr color=#fff>
-    <ion-row class="ion-align-items-center">
-      <ion-col>
-        <ion-text color = "medium"> {{ priceDay | currency:'BRL':true:'1.2-2'}} x {{days}}</ion-text>
-      </ion-col>
-      <ion-col size="auto">
-        <ion-text color="medium">{{priceTotalDays | currency:'BRL':true:'1.2-2'}}</ion-text>
-      </ion-col>
-    </ion-row>
-    <ion-row class="ion-align-items-center">
-      <ion-col>
-        <ion-text color = "medium">Desconto semanal de {{deductionWeek}}%</ion-text>
-      </ion-col>
-      <ion-col size="auto">
-        <ion-text color = "primary">{{deductionWeekTotal | currency:'BRL':true:'1.2-2'}}</ion-text>
-      </ion-col>
-    </ion-row>
-    <ion-row class="ion-align-items-center">
-      <ion-col>
-        <ion-text color = "medium">Taxa de Limpeza</ion-text>
-      </ion-col>
-      <ion-col size ="auto">
-        <ion-text color = "medium">{{cleaningFee | currency:'BRL':true:'1.2-2'}}</ion-text>
-      </ion-col>
-    </ion-row>
-    <ion-row class="ion-align-items-center">
-      <ion-col>
-        <ion-text color = "medium">Taxa de Serviço</ion-text>
-      </ion-col>
-      <ion-col size="auto">
-        <ion-text color="medium">{{serviceFee | currency:'BRL':true:'1.2-2'}}</ion-text>
-      </ion-col>
-    </ion-row>
-    <ion-row class="ion-align-items-center">
-      <ion-col>
-        <ion-text ><strong>Total (BRL)</strong></ion-text>
-      </ion-col>
-      <ion-col size="auto">
-        <ion-text ><strong>{{totalCost | currency:'BRL':true:'1.2-2'}}</strong></ion-text>
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col></ion-col>
-      <ion-col size="auto">
-        <ion-button (click)="moreInfo()" color = "light" size="small" >Mais informações</ion-button>
-      </ion-col>
-    </ion-row>
-  </ion-card>
-</ion-grid>
-
-<ion-grid>
-  <ion-card>
-    <ion-row class="ion-align-items-center">
-      <ion-col>
-        <ion-card-title><strong>Parcelas</strong></ion-card-title>
-      </ion-col>
-      <ion-col size="auto">
-        <ion-item>
-          <ion-select value="Selecionar" okText="Okay" cancelText="Dismiss">
-            <ion-select-option value="total1">1x {{total1 | currency:'BRL':true:'1.2-2'}}</ion-select-option>
-            <ion-select-option value="total2">2x {{total2 | currency:'BRL':true:'1.2-2'}}</ion-select-option>
-            <ion-select-option value="total3">3x {{total3 | currency:'BRL':true:'1.2-2'}}</ion-select-option>
-            <ion-select-option value="total4">4x {{total4 | currency:'BRL':true:'1.2-2'}}</ion-select-option>
-            <ion-select-option value="total5">5x {{total5 | currency:'BRL':true:'1.2-2'}}</ion-select-option>
-          </ion-select>
-        </ion-item>
-      </ion-col>
-    </ion-row>
-  </ion-card>
-</ion-grid>
-
-<ion-grid>
-  <ion-card>
-    <ion-row>
-      <ion-col>
-        <ion-card-title ><strong> Pague com</strong></ion-card-title>
-      </ion-col>
-    </ion-row>
-    <ion-row class="ion-align-items-center">
-      <ion-col>
-        <ion-card-subtitle > <strong>Forma de pagamento</strong>
-        </ion-card-subtitle>
-      </ion-col>
-      <ion-col size="auto" *ngIf="editAddPay">
-        <ion-button (click) = "presentModal()" color="primary"><ion-icon slot="start" name="wallet-outline"></ion-icon>ADD</ion-button>
-      </ion-col>
-      <ion-col size="auto" *ngIf="!editAddPay">
-        <ion-col  size="auto">
-          <ion-button (click)="presentModal2()" color = "primary" size="small">Editar</ion-button>
+  <ion-grid>
+    <ion-card class="ion-padding">
+      <ion-row>
+        <ion-col>
+          <ion-card-title><strong> Informações de preço</strong></ion-card-title>
         </ion-col>
-      </ion-col>
-    </ion-row>
-    <ion-row class="ion-align-items-center">
-      <ion-col *ngIf = "addCupom">
-        <ion-input class="borderInput"></ion-input>
-      </ion-col>
-      <ion-col *ngIf = "addCupom" size="auto">
-        <ion-button (click)="okCupom()" color="primary"><ion-icon name="checkmark-done-outline"></ion-icon></ion-button>
-      </ion-col>
-      <ion-col *ngIf = "addCupom" size="auto">
-        <ion-button (click)="notCupom()" fill="clear"><ion-icon name="close-sharp"></ion-icon></ion-button>
-      </ion-col>
-      <ion-col *ngIf = "removeButtonCupom" size="auto">
-        <ion-button (click)="cupom()" color="light" size = "small">Inserir Cupom</ion-button>
-      </ion-col>
-    </ion-row>
-  </ion-card>
-</ion-grid>
+      </ion-row>
+      <hr color=#fff>
+      <ion-row class="ion-align-items-center">
+        <ion-col>
+          <ion-text color="medium"> {{ priceDay | currency:'BRL':true:'1.2-2'}} x {{days}}</ion-text>
+        </ion-col>
+        <ion-col size="auto">
+          <ion-text color="medium">{{priceTotalDays | currency:'BRL':true:'1.2-2'}}</ion-text>
+        </ion-col>
+      </ion-row>
+      <ion-row class="ion-align-items-center">
+        <ion-col>
+          <ion-text color="medium">Desconto semanal de {{deductionWeek}}%</ion-text>
+        </ion-col>
+        <ion-col size="auto">
+          <ion-text color="danger">{{deductionWeekTotal | currency:'BRL':true:'1.2-2'}}</ion-text>
+        </ion-col>
+      </ion-row>
+      <ion-row class="ion-align-items-center">
+        <ion-col>
+          <ion-text color="medium">Taxa de Limpeza</ion-text>
+        </ion-col>
+        <ion-col size="auto">
+          <ion-text color="medium">{{cleaningFee | currency:'BRL':true:'1.2-2'}}</ion-text>
+        </ion-col>
+      </ion-row>
+      <ion-row class="ion-align-items-center">
+        <ion-col>
+          <ion-text color="medium">Taxa de Serviço</ion-text>
+        </ion-col>
+        <ion-col size="auto">
+          <ion-text color="medium">{{serviceFee | currency:'BRL':true:'1.2-2'}}</ion-text>
+        </ion-col>
+      </ion-row>
+      <ion-row class="ion-align-items-center">
+        <ion-col>
+          <ion-text><strong>Total (BRL)</strong></ion-text>
+        </ion-col>
+        <ion-col size="auto">
+          <ion-text><strong>{{totalCost | currency:'BRL':true:'1.2-2'}}</strong></ion-text>
+        </ion-col>
+      </ion-row><br><br>
+      <ion-row>
+        <ion-col></ion-col>
+        <ion-col size="auto">
+          <ion-button (click)="moreInfo()" color="danger" size="small">Mais informações</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-card>
+  </ion-grid>
 
-<ion-grid>
-  <ion-card class="editCard">
-    <ion-row>
-      <ion-col>
-        <ion-card-title ><strong> Política de Cancelamento</strong></ion-card-title>
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col>
-        <p color="medium" style="text-align: center">Cancelamento gratuito por 48 horas. Depois disso, cancele até 24 horas antes do dia do check-in e receba 50% de reembolso, menos a taxa de serviço.</p>
-      </ion-col>
-    </ion-row>
-  </ion-card>
-</ion-grid>
+  <ion-grid>
+    <ion-card class="ion-padding">
+      <ion-row class="ion-align-items-center">
+        <ion-col>
+          <ion-card-title><strong>Parcelas</strong></ion-card-title>
+        </ion-col>
+        <ion-col size="auto">
+          <ion-item>
+            <ion-select value="" okText="Pronto" cancelText="Cancelar">
+              <ion-select-option disabled="true" value="">Selecionar</ion-select-option>
+              <ion-select-option value="total1">1x {{total1 | currency:'BRL':true:'1.2-2'}}</ion-select-option>
+              <ion-select-option value="total2">2x {{total2 | currency:'BRL':true:'1.2-2'}}</ion-select-option>
+              <ion-select-option value="total3">3x {{total3 | currency:'BRL':true:'1.2-2'}}</ion-select-option>
+              <ion-select-option value="total4">4x {{total4 | currency:'BRL':true:'1.2-2'}}</ion-select-option>
+              <ion-select-option value="total5">5x {{total5 | currency:'BRL':true:'1.2-2'}}</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </ion-card>
+  </ion-grid>
 
-<ion-grid>
-  <ion-row>
-    <ion-col width-50 style="text-align: center">
-      <ion-button (click)="booking()" color="primary"> <ion-icon slot="start" name="lock-closed-outline"></ion-icon>Pedir para reservar
-    </ion-button>
-  </ion-col>
-  </ion-row>
-</ion-grid>
+  <ion-grid>
+    <ion-card class="ion-padding">
+      <ion-row>
+        <ion-col>
+          <ion-card-title><strong> Pague com</strong></ion-card-title>
+        </ion-col>
+      </ion-row>
+      <ion-row class="ion-align-items-center">
+        <ion-col>
+          <ion-card-subtitle>
+            <strong>Forma de pagamento</strong>
+          </ion-card-subtitle>
+        </ion-col>
+        <ion-col size="auto" *ngIf="editAddPay">
+          <ion-button (click)="presentModal()" color="danger">
+            <ion-icon slot="start" name="wallet-outline"></ion-icon>ADD
+          </ion-button>
+        </ion-col>
+        <ion-col size="auto" *ngIf="!editAddPay">
+          <ion-col size="auto">
+            <ion-button (click)="presentModal2()" color="danger" size="small">Editar</ion-button>
+          </ion-col>
+        </ion-col>
+      </ion-row>
+      <ion-row class="ion-align-items-center">
+        <ion-col *ngIf="addCupom">
+          <ion-input class="borderInput"></ion-input>
+        </ion-col>
+        <ion-col *ngIf="addCupom" size="auto">
+          <ion-button (click)="okCupom()" color="danger">
+            <ion-icon name="checkmark-done-outline"></ion-icon>
+          </ion-button>
+        </ion-col>
+        <ion-col *ngIf="addCupom" size="auto">
+          <ion-button (click)="notCupom()" fill="clear">
+            <ion-icon color="danger" name="close-sharp"></ion-icon>
+          </ion-button>
+        </ion-col>
+        <ion-col *ngIf="removeButtonCupom" size="auto">
+          <ion-button (click)="cupom()" color="danger" size="small">Inserir Cupom</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-card>
+  </ion-grid>
+
+  <ion-grid>
+    <ion-card class="editCard ion-padding">
+      <ion-row>
+        <ion-col>
+          <ion-card-title><strong> Política de Cancelamento</strong></ion-card-title>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <p color="medium" style="text-align: center">Cancelamento gratuito por 48 horas. Depois disso, cancele até 24
+            horas antes do dia do check-in e receba 50% de reembolso, menos a taxa de serviço.</p>
+        </ion-col>
+      </ion-row>
+    </ion-card>
+  </ion-grid>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col width-50 style="text-align: center">
+        <ion-button (click)="booking()" color="danger">
+          <ion-icon slot="start" name="lock-closed-outline"></ion-icon>Pedir para reservar
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 
 </ion-content>

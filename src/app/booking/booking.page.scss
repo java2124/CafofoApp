@@ -5,6 +5,7 @@
 .save-button {
   font-size: 1.5em;
   text-decoration: none;
+  color: danger;
 }
 
 ion-grid{
@@ -25,4 +26,20 @@ ion-textarea{
   border-radius: 8px;
 }
 
+ion-header {
+  border: 1 px solid black;
+}
+
+ion-card {
+  background-color:#fff;
+}
+
+ion-select {
+  background-color: #fff;
+  color: #000;
+}
+
+ion-header {
+  background-color: #ff4961;
+}
 

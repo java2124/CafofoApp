@@ -9,13 +9,13 @@ ion-header h1 {
 
 .arrow-button {
   font-size: 2em;
-  color: #fff;
+  color: #000;
   text-decoration: none;
 }
 
 .save-button {
   font-size: 1.5em;
-  color: #fff;
+  color: #000;
   text-decoration: none;
 }
 
@@ -33,4 +33,11 @@ input {
 
 label {
   padding: 5px;
+}
+
+.botao-entrar{
+  border: none;
+  background: #f2f2f2;
+  color: black;
+  font-size: 1.4em;
 }

@@ -1,16 +1,21 @@
+<ion-header>
+  <ion-row class="ion-align-items-center">
+    <ion-col>
+      <div class="ion-float-start ion-padding">
+        <span>
+          <ion-back-button color="danger" class="save-button" defaultHref="/login">
+          </ion-back-button>
+        </span>
+      </div>
+    </ion-col>
+  </ion-row>
+</ion-header>
 <ion-content>
   <div>
     <ion-row>
       <ion-col>
         <ion-header>
           <div class="header">
-            <span class="ion-float-start ion-padding">
-              <a class="arrow-button" href="../login">←</a>
-            </span>
-            <span class="ion-float-end ion-padding">
-              <a class="save-button" (click) = "cadastrar()">Salvar</a>
-            </span>
-            <br><br><br><br>
             <h1>Cadastrar Informações Pessoais</h1>
           </div>
         </ion-header>
@@ -22,25 +27,25 @@
       <ion-col class="form-format">
         <form action="">
           <label for="">Nome</label><br>
-          <input class="" type="text"><br><br>
+          <input class="botao-entrar" type="text"><br><br>
 
           <label for="">Sobrenome</label><br>
-          <input class="" type="text"><br><br>
+          <input class="botao-entrar" type="text"><br><br>
 
           <label for="">Gênero</label><br>
-          <input class="" type="text"><br><br>
+          <input class="botao-entrar" type="text"><br><br>
 
           <label for="">Data de Nasc</label><br>
-          <input class="" type="date"><br><br>
+          <input class="botao-entrar" type="date"><br><br>
 
           <label for="">E-mail</label><br>
-          <input type="email" required="required" class="input-text" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"><br><br>
+          <input type="email" required="required" class="input-text botao-entrar" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"><br><br>
 
           <label for="">Número de Telefone</label><br>
-          <input class="" type="tel" id="phone" required="required" maxlength="15" name="phone" pattern="\([0-9]{2}\) [0-9]{4,6}-[0-9]{3,4}$"><br><br>
+          <input class="botao-entrar" type="tel" id="phone" required="required" maxlength="15" name="phone" pattern="\([0-9]{2}\) [0-9]{4,6}-[0-9]{3,4}$"><br><br>
 
           <label for="">Documento de identificação</label><br>
-          <input class="" type="file">
+          <input class="botao-entrar" type="file">
         </form>
       </ion-col>
     </ion-row>
