@@ -7,7 +7,11 @@ const routes: Routes = [
   {
     path: '',
     component: ExplorePage
+  },  {
+    path: 'find',
+    loadChildren: () => import('./find/find.module').then( m => m.FindPageModule)
   }
+
 ];
 
 @NgModule({
