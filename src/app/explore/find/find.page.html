@@ -15,7 +15,7 @@
 
     <ion-item *ngFor="let cidade of cidades">
       <ion-card class="ion-padding">
-        <ion-img src="{{cidade.foto}}"></ion-img>
+        <ion-img routerLink="/detalhes" src="{{cidade.foto}}"></ion-img>
         <hr>
         <ion-card-title>{{cidade.name}}</ion-card-title>
         <ion-card-subtitle>
@@ -25,12 +25,10 @@
         <ion-card-content>
           {{cidade.descricao}}
         </ion-card-content>
-        <ion-button color="danger" routerLink="/detalhes">Ver Detalhes</ion-button>
       </ion-card>
 
     </ion-item>
   </ion-list>
-
 
 </ion-content>
 
