@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-toolbar color="primary">
+  <ion-toolbar color="danger">
     <ion-title>Escolher Forma de Pagamento</ion-title>
   </ion-toolbar>
 </ion-header>
@@ -27,37 +27,37 @@
   </ion-list>
 
   <ion-grid *ngIf="creditCard && !debitCard && !boleto">
-    <ion-card class="editCard">
+    <ion-card class="editCard ion-padding">
       <ion-row>
         <ion-icon name="alert-outline"></ion-icon>
-        <ion-input placeholder="Número do Cartão/Crédito"></ion-input>
+        <ion-input class="ion-padding" placeholder="Número do Cartão/Crédito"></ion-input>
       </ion-row>
       <hr>
       <ion-row>
         <ion-col size="small"><ion-icon name="alert-outline"></ion-icon></ion-col>
         <ion-col>
-          <ion-input placeholder="Validade"></ion-input>
+          <ion-input class="ion-padding" placeholder="Validade"></ion-input>
         </ion-col>
         <ion-col size="small"></ion-col>
         <ion-col size="small"><ion-icon name="alert-outline"></ion-icon></ion-col>
         <ion-col>
-          <ion-input placeholder="CVV"></ion-input>
+          <ion-input class="ion-padding" placeholder="CVV"></ion-input>
         </ion-col>
       </ion-row>
       <hr>
       <ion-row>
         <ion-icon name="alert-outline"></ion-icon>
-        <ion-input placeholder="Nome do Titular"></ion-input>
+        <ion-input class="ion-padding" placeholder="Nome do Titular"></ion-input>
       </ion-row>
       <hr>
       <ion-row>
         <ion-icon name="alert-outline"></ion-icon>
-        <ion-input placeholder="Data de Nascimento"></ion-input>
+        <ion-input class="ion-padding" placeholder="Data de Nascimento"></ion-input>
       </ion-row>
       <hr>
       <ion-row>
         <ion-icon name="alert-outline"></ion-icon>
-        <ion-input placeholder="CPF"></ion-input>
+        <ion-input class="ion-padding" placeholder="CPF"></ion-input>
       </ion-row>
       <hr>
       <ion-row class="ion-text-center">
@@ -67,37 +67,37 @@
   </ion-grid>
 
   <ion-grid *ngIf="debitCard && !creditCard && !boleto">
-    <ion-card class="editCard">
+    <ion-card class="editCard ion-padding">
       <ion-row>
         <ion-icon name="alert-outline"></ion-icon>
-        <ion-input placeholder="Número do Cartão/Débito"></ion-input>
+        <ion-input class="ion-padding" placeholder="Número do Cartão/Débito"></ion-input>
       </ion-row>
       <hr>
       <ion-row>
         <ion-col size="small"><ion-icon name="alert-outline"></ion-icon></ion-col>
         <ion-col>
-          <ion-input placeholder="Validade"></ion-input>
+          <ion-input class="ion-padding" placeholder="Validade"></ion-input>
         </ion-col>
         <ion-col size="small"></ion-col>
         <ion-col size="small"><ion-icon name="alert-outline"></ion-icon></ion-col>
         <ion-col>
-          <ion-input placeholder="CVV"></ion-input>
+          <ion-input class="ion-padding" placeholder="CVV"></ion-input>
         </ion-col>
       </ion-row>
       <hr>
       <ion-row>
         <ion-icon name="alert-outline"></ion-icon>
-        <ion-input placeholder="Nome do Titular"></ion-input>
+        <ion-input class="ion-padding" placeholder="Nome do Titular"></ion-input>
       </ion-row>
       <hr>
       <ion-row>
         <ion-icon name="alert-outline"></ion-icon>
-        <ion-input placeholder="Data de Nascimento"></ion-input>
+        <ion-input class="ion-padding" placeholder="Data de Nascimento"></ion-input>
       </ion-row>
       <hr>
       <ion-row>
         <ion-icon name="alert-outline"></ion-icon>
-        <ion-input placeholder="CPF"></ion-input>
+        <ion-input class="ion-padding" placeholder="CPF"></ion-input>
       </ion-row>
       <hr>
       <ion-row class="ion-text-center">
@@ -107,20 +107,20 @@
   </ion-grid>
 
   <ion-grid *ngIf="boleto">
-    <ion-card class="editCard">
+    <ion-card class="editCard ion-padding">
       <ion-row>
         <ion-icon name="alert-outline"></ion-icon>
-        <ion-input placeholder="Nome Completo"></ion-input>
+        <ion-input class="ion-padding" placeholder="Nome Completo"></ion-input>
       </ion-row>
       <hr>
       <ion-row>
         <ion-icon name="alert-outline"></ion-icon>
-        <ion-input placeholder="CPF"></ion-input>
+        <ion-input class="ion-padding" placeholder="CPF"></ion-input>
       </ion-row>
       <hr>
       <ion-row>
         <ion-icon name="alert-outline"></ion-icon>
-        <ion-input placeholder="E-mail"></ion-input>
+        <ion-input class="ion-padding" placeholder="E-mail"></ion-input>
       </ion-row>
       <hr>
       <ion-row class="ion-text-center">
@@ -134,13 +134,10 @@
 <ion-footer>
   <ion-row class="ion-align-items-center">
     <ion-col >
-      <ion-button fill="clear" style="text-decoration: underline" (click) = "cancelPay()">Cancelar</ion-button>
+      <ion-button class="ion-margin" color="danger" fill="clear" style="text-decoration: underline" (click) = "cancelPay()">Cancelar</ion-button>
     </ion-col>
     <ion-col size="auto">
-      <ion-button (click) = "savePay()">Salvar</ion-button>
+      <ion-button class="ion-margin" color="danger" (click) = "savePay()">Salvar</ion-button>
     </ion-col>
   </ion-row>
 </ion-footer>
-
-
-

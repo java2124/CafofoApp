@@ -1,17 +1,24 @@
+<ion-header>
+  <ion-row class="ion-align-items-center">
+    <ion-col>
+      <div class="ion-float-start ion-padding">
+        <span>
+          <ion-back-button color="dark" class="save-button" defaultHref="/login">
+          </ion-back-button>
+        </span>
+      </div>
+    </ion-col>
+    <ion-col>
+      <div>
+        <span class="ion-float-end ion-padding">
+          <ion-text color="dark" class="save-button">Login</ion-text>
+        </span>
+      </div>
+    </ion-col>
+  </ion-row>
+</ion-header>
+
 <ion-content>
-  <div>
-    <ion-row>
-      <ion-col>
-        <ion-header>
-          <div class="header">
-            <span class="ion-float-start ion-padding">
-              <a class="arrow-button" href="../login">←</a>
-            </span>
-          </div>
-        </ion-header>
-      </ion-col>
-    </ion-row>
-  </div>
   <div class="background ion-padding-horizontal">
       <ion-row>
         <ion-col>
@@ -21,13 +28,13 @@
       <ion-row>
         <ion-col>
           <div>
-            <ion-input class="botao-entrar" placeholder="E-mail"></ion-input>
+            <ion-input class="botao-entrar ion-padding" placeholder="E-mail"></ion-input>
             <hr>
-            <ion-input class="botao-entrar" placeholder="Senha"></ion-input>
+            <ion-input class="botao-entrar ion-padding" placeholder="Senha"></ion-input>
             <hr><hr>
             <ion-row>
               <ion-col width-50 style="text-align: center">
-                <ion-button color="primary" routerLink="/explore">Entrar</ion-button>
+                <ion-button color="light" routerLink="/explore">Entrar</ion-button>
               </ion-col>
             </ion-row>
           </div>
