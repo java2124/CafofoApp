@@ -80,6 +80,11 @@ export class ExplorePage {
      
   }
 
+  public link(){
+    console.log('Pagina de Informações de respostar contra COVID-19');
+    console.log('Pagina ainda não implementada, a mesma irá informar como se previnir contra a COVID-19');
+  }
+
   FilterCidade(cid: any){
     let val = cid.target.value;
     if(val && val.trim() != ''){
