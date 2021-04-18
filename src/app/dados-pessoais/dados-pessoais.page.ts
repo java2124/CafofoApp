@@ -7,6 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DadosPessoaisPage implements OnInit {
 
+  public salvar(){
+    console.log('Alterações salvas com sucesso!');
+  }
+
   constructor() { }
 
   ngOnInit() {

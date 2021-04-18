@@ -11,7 +11,7 @@
     <ion-col>
       <div>
         <span class="ion-float-end ion-padding">
-          <ion-text color="danger" class="save-button">Salvar</ion-text>
+          <ion-text color="danger" class="save-button" (click) = "salvar()">Salvar</ion-text>
         </span>
       </div>
     </ion-col>
@@ -25,7 +25,7 @@
           <div class="header">
             <h1>Editar informações pessoais</h1>
           </div>
-        </ion-header>        
+        </ion-header>
       </ion-col>
     </ion-row>
   </div>
@@ -50,7 +50,7 @@
 
           <label for="">Número de Telefone</label><br>
           <input value="(13) 95155-6556" class="botao-entrar" type="tel" id="phone" required="required" maxlength="15" name="phone" pattern="\([0-9]{2}\) [0-9]{4,6}-[0-9]{3,4}$"><br><br>
-        
+
           <label for="">Documento de identificação</label><br>
           <input class="botao-entrar" type="file">
         </form>

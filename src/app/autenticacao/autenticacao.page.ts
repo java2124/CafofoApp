@@ -7,6 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AutenticacaoPage implements OnInit {
 
+  public entrar(){
+    console.log('Login feito com sucesso!');
+  }
+
   constructor() { }
 
   ngOnInit() {
