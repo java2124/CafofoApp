@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { AlertController, ModalController } from '@ionic/angular';
 import { ModalPagamentoPage } from '../modal-pagamento/modal-pagamento.page';
+import { CafofoHomeService } from '../services/cafofo-home.service';
+import { NavController } from '@ionic/angular';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-booking',
@@ -9,10 +12,14 @@ import { ModalPagamentoPage } from '../modal-pagamento/modal-pagamento.page';
 })
 export class BookingPage implements OnInit {
 
-  public nameHouse = 'Casa Floresta Encantada';
-  public descriptionHouse = 'Casa na floresta em São Roque';
-  public detailsHouse = '6 camas . 3 banheiros';
-  public avaliationHouse = 4.86;
+  public id;
+  public home;
+
+  // tslint:disable-next-line:max-line-length
+  constructor( route: ActivatedRoute, private alertController: AlertController, private modalController: ModalController, private cafofohomeService: CafofoHomeService, private navCtrl: NavController) {
+       this.id = +route.snapshot.paramMap.get('id');
+       this.home = cafofohomeService.getId(this.id);
+   }
 
   public optionWork = false;
   public editDate2 = false;
@@ -116,8 +123,6 @@ export class BookingPage implements OnInit {
   public closed2(){
     this.saveGuest = false;
   }
-
-  constructor(private alertController: AlertController, private modalController: ModalController) { }
 
   public async booking(){
     const alert = await this.alertController.create({

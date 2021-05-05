@@ -5,7 +5,7 @@ import { BookingPage } from './booking.page';
 
 const routes: Routes = [
   {
-    path: '',
+    path: ':id',
     component: BookingPage
   }
 ];

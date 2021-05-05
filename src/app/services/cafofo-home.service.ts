@@ -1,0 +1,187 @@
+import { Injectable } from '@angular/core';
+
+type cidades = 'São Roque' | 'Guaruja' | 'Santos' | 'Rio de Janeiro' | 'Socorro' | 'Campos do Jordão'| 'Paraty' | 'São Sebastião'| 'Campinas';
+type pets = 'Aceita Pet' | 'Não Aceita Pet';
+type rua = 'Silenciosa' | 'Não Silenciosa';
+type academia = 'Academia' | 'Sem Academia';
+type garagem = 'Garagem' | 'Sem garagem';
+
+
+export interface Acomodacao {
+  id: number;
+  name: string;
+  descricao: string;
+  nota: number;
+  qtdCamas: number;
+  qtdBanheiro: number;
+  precoDia: number;
+  locais: cidades;
+  foto: string;
+  descricaoProp: string;
+  pet: pets;
+  ruas: rua;
+  academias: academia;
+  dimensao: string;
+  garagens: garagem;
+}
+@Injectable({
+  providedIn: 'root'
+})
+
+export class CafofoHomeService {
+  public cidades: Acomodacao [ ];
+
+
+  constructor() {
+
+    this.cidades = [
+      {
+        id: 1,
+        name: 'Casa Floresta Encantada',
+        descricao: 'Casa na floresta em São Roque',
+        nota: 4.86,
+        qtdCamas: 6,
+        qtdBanheiro: 3,
+        precoDia: 70.00,
+        locais: 'São Roque',
+        foto: 'https://images.pexels.com/photos/209315/pexels-photo-209315.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+        descricaoProp: 'A casa possui uma excelente infraestrutura, com mobilias novas e modernas, os quartos são equipados com ar condicionado, além de aparelhos de ginástica. Com uma bela vista para a floresta. A casa está em um local privilegiado dentro de uma reserva segura e traquila.',
+        pet: 'Aceita Pet',
+        ruas: 'Silenciosa',
+        academias: 'Academia',
+        dimensao: '260 m²',
+        garagens: 'Garagem'
+      },
+      {
+        id: 2,
+        name: 'Casa Rio Pequeno',
+        descricao: 'Casa na praia em Rio Pequeno',
+        nota: 4.90,
+        qtdCamas: 5,
+        qtdBanheiro: 2,
+        precoDia: 55.00,
+        locais: 'Guaruja',
+        foto: 'https://images.pexels.com/photos/277667/pexels-photo-277667.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+        descricaoProp: 'A casa possui uma excelente infraestrutura, com mobilias novas e modernas, os quartos são equipados com ar condicionado, além de aparelhos de ginástica. Com uma bela vista para a floresta. A casa está em um local privilegiado dentro de uma reserva segura e traquila.',
+        pet: 'Não Aceita Pet',
+        ruas: 'Silenciosa',
+        academias: 'Academia',
+        dimensao: '280 m²',
+        garagens: 'Garagem'
+      },
+      {
+        id: 3,
+        name: 'Casa Bosque das Flores',
+        descricao: 'Casa na praia em Santos',
+        nota: 3.98,
+        qtdCamas: 6,
+        qtdBanheiro: 3,
+        precoDia: 75.00,
+        locais: 'Santos',
+        foto: 'https://images.pexels.com/photos/1029599/pexels-photo-1029599.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+        descricaoProp: 'A casa possui uma excelente infraestrutura, com mobilias novas e modernas, os quartos são equipados com ar condicionado, além de aparelhos de ginástica. Com uma bela vista para a floresta. A casa está em um local privilegiado dentro de uma reserva segura e traquila.',
+        pet: 'Aceita Pet',
+        ruas: 'Não Silenciosa',
+        academias: 'Academia',
+        dimensao: '300 m²',
+        garagens: 'Garagem'
+      },
+      {
+        id: 4,
+        name: 'Casa Alpes',
+        descricao: 'Casa nas montanhas em campos do Jordão',
+        nota: 5.00,
+        qtdCamas: 4,
+        qtdBanheiro: 3,
+        precoDia: 105.00,
+        locais: 'Campos do Jordão',
+        foto: 'https://images.pexels.com/photos/1396132/pexels-photo-1396132.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+        descricaoProp: 'A casa possui uma excelente infraestrutura, com mobilias novas e modernas, os quartos são equipados com ar condicionado, além de aparelhos de ginástica. Com uma bela vista para a floresta. A casa está em um local privilegiado dentro de uma reserva segura e traquila.',
+        pet: 'Aceita Pet',
+        ruas: 'Silenciosa',
+        academias: 'Academia',
+        dimensao: '520 m²',
+        garagens: 'Garagem'
+      },
+      {
+        id: 5,
+        name: 'Casa Prisma',
+        descricao: 'Casa nas montanhas em Paraty',
+        nota: 3.95,
+        qtdCamas: 3,
+        qtdBanheiro: 2,
+        precoDia: 65.00,
+        locais: 'Paraty',
+        foto: 'https://images.pexels.com/photos/2985154/pexels-photo-2985154.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+        descricaoProp: 'A casa possui uma excelente infraestrutura, com mobilias novas e modernas, os quartos são equipados com ar condicionado, além de aparelhos de ginástica. Com uma bela vista para a floresta. A casa está em um local privilegiado dentro de uma reserva segura e traquila.',
+        pet: 'Aceita Pet',
+        ruas: 'Silenciosa',
+        academias: 'Sem Academia',
+        dimensao: '170 m²',
+        garagens: 'Garagem'
+      },
+      {
+        id: 6,
+        name: 'Casa Rio Ipê',
+        descricao: 'Casa no lago em Socorro',
+        nota: 4.38,
+        qtdCamas: 4,
+        qtdBanheiro: 3,
+        precoDia: 72.00,
+        locais: 'Socorro',
+        foto: 'https://images.pexels.com/photos/280222/pexels-photo-280222.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
+        descricaoProp: 'A casa possui uma excelente infraestrutura, com mobilias novas e modernas, os quartos são equipados com ar condicionado, além de aparelhos de ginástica. Com uma bela vista para a floresta. A casa está em um local privilegiado dentro de uma reserva segura e traquila.',
+        pet: 'Aceita Pet',
+        ruas: 'Silenciosa',
+        academias: 'Academia',
+        dimensao: '225 m²',
+        garagens: 'Garagem'
+      },
+      {
+        id: 7,
+        name: 'Casa Idade das Pedras',
+        descricao: 'Casa no subúrbio em Socorro',
+        nota: 4.15,
+        qtdCamas: 2,
+        qtdBanheiro: 1,
+        precoDia: 52.00,
+        locais: 'São Sebastião',
+        foto: 'https://images.pexels.com/photos/2079437/pexels-photo-2079437.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+        descricaoProp: 'A casa possui uma excelente infraestrutura, com mobilias novas e modernas, os quartos são equipados com ar condicionado, além de aparelhos de ginástica. Com uma bela vista para a floresta. A casa está em um local privilegiado dentro de uma reserva segura e traquila.',
+        pet: 'Aceita Pet',
+        ruas: 'Silenciosa',
+        academias: 'Academia',
+        dimensao: '260 m²',
+        garagens: 'Garagem'
+      },
+      {
+        id: 8,
+        name: 'Casa Campos Verdes ',
+        descricao: 'Casa no subúrbio em Campinas',
+        nota: 4.75,
+        qtdCamas: 4,
+        qtdBanheiro: 2,
+        precoDia: 68.00,
+        locais: 'Campinas',
+        foto: 'https://images.pexels.com/photos/5997993/pexels-photo-5997993.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940	',
+        descricaoProp: 'A casa possui uma excelente infraestrutura, com mobilias novas e modernas, os quartos são equipados com ar condicionado, além de aparelhos de ginástica. Com uma bela vista para a floresta. A casa está em um local privilegiado dentro de uma reserva segura e traquila.',
+        pet: 'Aceita Pet',
+        ruas: 'Não Silenciosa',
+        academias: 'Academia',
+        dimensao: '268 m²',
+        garagens: 'Garagem'
+      }
+    ];
+  }
+
+  public all(){
+    return this.cidades;
+  }
+
+  public getId(id: number){
+    return {...this.cidades.find(s => s.id === id)};
+  }
+  public get(local: string) {
+    return { ...this.cidades.find(s => s.locais === local) };
+  }
+}

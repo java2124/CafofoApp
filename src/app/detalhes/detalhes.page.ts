@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { AlertController } from '@ionic/angular';
+import { ActivatedRoute } from '@angular/router';
+import { NavController } from '@ionic/angular';
+import { CafofoHomeService } from '../services/cafofo-home.service';
 
 @Component({
   selector: 'app-detalhes',
@@ -8,10 +10,17 @@ import { AlertController } from '@ionic/angular';
 })
 export class DetalhesPage implements OnInit {
 
-  ngOnInit() {
-  }
+  public id;
+  public home;
 
-  constructor(private alertController: AlertController) { }
 
+  constructor( route: ActivatedRoute, private cafofoHomeService: CafofoHomeService, private navCtrl: NavController) {
+
+       this.id = +route.snapshot.paramMap.get('id');
+       this.home = cafofoHomeService.getId(this.id);
+    }
+
+    ngOnInit() {
+    }
 
 }

@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar class="ion-padding" color="danger">
-    <ion-searchbar class="ion-padding" routerLink="/explore/find" placeholder="Para onde você vai?">
+    <ion-searchbar class="ion-padding" routerLink="/find" placeholder="Para onde você vai?">
     </ion-searchbar>
   </ion-toolbar>
 </ion-header>
@@ -21,7 +21,7 @@
       </ion-row>
     </div>
     <h1 class="ion-margin">&nbsp;Sugestões&nbsp;</h1>
-    <ion-slides [options]="slideOpts">
+    <ion-slides [options]= "slideOpts">
       <ion-slide>
         <ion-row>
           <ion-col>
@@ -117,52 +117,50 @@
 
     <h1>&nbsp;Lugares mais procurados&nbsp;</h1>
 
-    <ion-slides [options]="slideOpts">
+    <ion-slides [options]= "slideOpts">
       <ion-slide>
-        <ion-card class="ion-padding">
-          <ion-img routerLink="/detalhes"
-            src="https://images.pexels.com/photos/209315/pexels-photo-209315.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940">
+        <ion-card class="ion-padding" [routerLink]="['/detalhes', nomeCasa.id]">
+          <ion-img
+            src={{nomeCasa.foto}}>
           </ion-img>
           <hr>
-          <ion-card-title>Casa Floresta Encantada</ion-card-title>
+          <ion-card-title>{{nomeCasa.name}}</ion-card-title>
           <ion-card-subtitle>
-            <ion-icon name="map-outline" color="danger"></ion-icon>São Roque &nbsp;<ion-icon name="star"
-              color="danger"></ion-icon>4.86 &nbsp; <ion-icon name="diamond-outline" color="danger"></ion-icon>
+            <ion-icon name="map-outline" color="danger"></ion-icon>{{nomeCasa.locais}} &nbsp;<ion-icon name="star"
+              color="danger"></ion-icon>{{nomeCasa.nota}} &nbsp; <ion-icon name="diamond-outline" color="danger"></ion-icon>
             Superhost
           </ion-card-subtitle>
         </ion-card>
       </ion-slide>
       <ion-slide>
-        <ion-card class="ion-padding">
-          <ion-img routerLink="/detalhes"
-            src="https://images.pexels.com/photos/277667/pexels-photo-277667.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940">
+        <ion-card class="ion-padding" [routerLink]="['/detalhes', nomeCasa2.id]">
+          <ion-img
+            src={{nomeCasa2.foto}}>
           </ion-img>
           <hr>
-          <ion-card-title>Casa Rio Pequeno</ion-card-title>
+          <ion-card-title>{{nomeCasa2.name}}</ion-card-title>
           <ion-card-subtitle>
-            <ion-icon name="map-outline" color="primary"></ion-icon>Guarujá &nbsp; <ion-icon name="star"
-              color="primary"></ion-icon>4.90 &nbsp; <ion-icon name="diamond-outline" color="danger"></ion-icon>
+            <ion-icon name="map-outline" color="primary"></ion-icon>{{nomeCasa2.locais}} &nbsp; <ion-icon name="star"
+              color="primary"></ion-icon>{{nomeCasa2.nota}} &nbsp; <ion-icon name="diamond-outline" color="danger"></ion-icon>
             Superhost
           </ion-card-subtitle>
         </ion-card>
       </ion-slide>
       <ion-slide>
-        <ion-card class="ion-padding">
-          <ion-img routerLink="/detalhes" 
-            src="https://images.pexels.com/photos/1029599/pexels-photo-1029599.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" >
+        <ion-card class="ion-padding" [routerLink]="['/detalhes', nomeCasa3.id]">
+          <ion-img
+            src= {{nomeCasa3.foto}} >
           </ion-img>
           <hr>
-          <ion-card-title>Casa Bosque das Flores</ion-card-title>
+          <ion-card-title>{{nomeCasa3.name}}</ion-card-title>
           <ion-card-subtitle>
-            <ion-icon name="map-outline" color="danger"></ion-icon>Santos &nbsp; <ion-icon name="star" color="primary">
-            </ion-icon>3.98 &nbsp; <ion-icon name="diamond-outline" color="danger"></ion-icon>Superhost
+            <ion-icon name="map-outline" color="danger"></ion-icon>{{nomeCasa3.locais}} &nbsp; <ion-icon name="star" color="primary">
+            </ion-icon>{{nomeCasa3.nota}} &nbsp; <ion-icon name="diamond-outline" color="danger"></ion-icon>Superhost
           </ion-card-subtitle>
         </ion-card>
       </ion-slide>
     </ion-slides>
 
-
-  <h6 class="cd19-news"><a (click)="link()">Confira as últimas informações sobre nossas respostas à COVID-19</a></h6>
 </ion-content>
 
 <ion-footer>

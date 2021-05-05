@@ -42,7 +42,11 @@ const routes: Routes = [
   {
     path: 'autenticacao',
     loadChildren: () => import('./autenticacao/autenticacao.module').then( m => m.AutenticacaoPageModule)
+  },  {
+    path: 'find',
+    loadChildren: () => import('./find/find.module').then( m => m.FindPageModule)
   },
+
 
 
 

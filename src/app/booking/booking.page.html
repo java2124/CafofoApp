@@ -26,21 +26,21 @@
         <ion-col size="auto">
           <ion-avatar>
             <ion-img
-              src="https://images.pexels.com/photos/209315/pexels-photo-209315.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940">
+              src={{home.foto}}>
             </ion-img>
           </ion-avatar>
         </ion-col>
         <ion-col size="auto">
-          <ion-text class="medium">{{descriptionHouse}}</ion-text>
+          <ion-text class="medium">{{home.descricao}}</ion-text>
           <strong></strong>
-          <ion-card-title><strong>{{nameHouse}}</strong></ion-card-title>
+          <ion-card-title><strong>{{home.name}}</strong></ion-card-title>
           <strong></strong>
-          <ion-card-subtitle color="medium">{{detailsHouse}}</ion-card-subtitle>
+          <ion-card-subtitle color="medium">{{home.qtdCamas}} camas . {{home.qtdBanheiro}} banheiros</ion-card-subtitle>
           <strong></strong>
           <ion-row>
             <ion-col size="auto">
               <ion-icon name="star" color="danger"></ion-icon>
-              <ion-text><strong>{{avaliationHouse}}</strong></ion-text>
+              <ion-text><strong>{{home.nota}}</strong></ion-text>
             </ion-col>
             <ion-col size="auto">
               <ion-icon name="diamond-outline" color="danger"></ion-icon>
