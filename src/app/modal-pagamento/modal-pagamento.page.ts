@@ -1,6 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 
+export interface boleto {
+  cpf: string;
+  name: string;
+  email: string;
+}
+
 @Component({
   selector: 'app-modal-pagamento',
   templateUrl: './modal-pagamento.page.html',
@@ -10,6 +16,12 @@ export class ModalPagamentoPage implements OnInit {
   public creditCard = false;
   public debitCard = false;
   public boleto = false;
+  public name; 
+  public cpf;
+  public email;
+
+  public infosBoletos = {}
+
 
   public formCredit(){
     this.creditCard = true;
@@ -37,8 +49,11 @@ export class ModalPagamentoPage implements OnInit {
   }
 
   public savePay(){
-    console.log('Pagamento Salvo!');
-    this.modalController.dismiss();
+    
+      console.log('Pagamento Salvo!');
+      this.modalController.dismiss();
+    
+    
   }
 
   ngOnInit() {
