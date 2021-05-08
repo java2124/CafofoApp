@@ -14,11 +14,24 @@ export class BookingPage implements OnInit {
 
   public id;
   public home;
+  public priceDay;
+  public days = 5;
+  public priceTotalDays;
+  public deductionWeek;
+  public deductionWeekTotal;
+  public cleaningFee = 45.00;
+  public serviceFee = 60.00;
+  public totalCost;
 
   // tslint:disable-next-line:max-line-length
   constructor( route: ActivatedRoute, private alertController: AlertController, private modalController: ModalController, private cafofohomeService: CafofoHomeService, private navCtrl: NavController) {
        this.id = +route.snapshot.paramMap.get('id');
        this.home = cafofohomeService.getId(this.id);
+       this.priceDay = this.home.precoDia;
+       this.priceTotalDays = this.priceDay * this.days;
+       this.deductionWeek = 20;
+       this.deductionWeekTotal = (this.priceTotalDays * (this.deductionWeek * (this.days / 7))) / 100;
+       this.totalCost = (this.priceTotalDays + this.cleaningFee + this.serviceFee) - this.deductionWeekTotal;
    }
 
   public optionWork = false;
@@ -36,21 +49,6 @@ export class BookingPage implements OnInit {
   public addCupom = false;
   public removeButtonCupom = true;
   public saveGuest = true;
-
-  public priceDay = 70.00;
-  public days = 5;
-  public priceTotalDays = this.priceDay * this.days;
-  public deductionWeek = 20;
-  public deductionWeekTotal = (this.priceTotalDays * (this.deductionWeek * (this.days / 7))) / 100;
-  public cleaningFee = 45.00;
-  public serviceFee = 60.00;
-  public totalCost = (this.priceTotalDays + this.cleaningFee + this.serviceFee) - this.deductionWeekTotal;
-
-  public total1 = this.totalCost;
-  public total2 = this.totalCost / 2;
-  public total3 = this.totalCost / 3;
-  public total4 = this.totalCost / 4;
-  public total5 = this.totalCost / 5;
 
   public editAddPay = true;
 
