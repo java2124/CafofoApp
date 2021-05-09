@@ -11,7 +11,7 @@ export class HistoricoPage implements OnInit {
   public historicoReservas;
 
   constructor(private cafofoHomeService: CafofoHomeService) {
-    this.historicoReservas = cafofoHomeService.all();
+    this.historicoReservas = cafofoHomeService.Reservas();
   }
 
   ngOnInit() {

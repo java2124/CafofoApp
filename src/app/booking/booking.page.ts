@@ -163,7 +163,9 @@ export class BookingPage {
 
   public async booking(){
       /*Aqui deve verificar também se initDate > finishDate e initDate > diaAtual (pode ser uma váriavel inicializada como new Date()*/
-      if (this.qtdGuest > 0 && this.nameBoleto !== null && this.emailBoleto !== null && this.cpfBoleto !== null){
+      console.log("initDate: "+this.initDate);
+      console.log("finishDate: "+this.finishDate);
+      if (this.qtdGuest > 0 && this.nameBoleto !== null && this.emailBoleto !== null && this.cpfBoleto !== null && this.initDate < this.finishDate){
         this.cafofohomeService.addReserva(this.home.name, this.home.descricao, this.home.precoDia, this.home.locais, this.nameBoleto);
         const alert = await this.alertController.create({
           header: 'Yay!',
