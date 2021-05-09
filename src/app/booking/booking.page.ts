@@ -43,8 +43,9 @@ export class BookingPage {
 
   public optionWork = false;
   public editDate2 = false;
-  public finishDate = new Date();
+  public todayDate = new Date();
   public initDate = new Date();
+  public finishDate = new Date();
   public close = true;
   public editGuest2 = false;
   public qtdGuest = 0;
@@ -57,6 +58,10 @@ export class BookingPage {
   public removeButtonCupom = true;
   public saveGuest = true;
   public editAddPay = true;
+  public msg1;
+  public msg2;
+   
+   
 
 
   public addGuest(){
@@ -114,6 +119,8 @@ export class BookingPage {
     this.close = true;
   }
 
+  
+
   public editGuest(){
     this.editGuest2 = true;
     this.saveGuest = true;
@@ -121,7 +128,6 @@ export class BookingPage {
 
   public closed(){
     this.close = false;
-    console.log('Data Editada, atualização do número de dias nas informações de preço');
   }
 
   public closed2(){
@@ -154,10 +160,24 @@ export class BookingPage {
     this.emailBoleto = this.result.data.email;
   }
 
+
   public async booking(){
+<<<<<<< HEAD
       /*Aqui deve verificar também se initDate > finishDate e initDate > diaAtual (pode ser uma váriavel inicializada como new Date()*/
       if (this.qtdGuest > 0 && this.nameBoleto !== null && this.emailBoleto !== null && this.cpfBoleto !== null){
         this.cafofohomeService.addReserva(this.home.name, this.home.descricao, this.home.precoDia, this.home.locais, this.nameBoleto);
+=======
+      
+    /*Aqui deve verificar também se initDate > finishDate e initDate > diaAtual (pode ser uma váriavel inicializada como new Date()*/
+      console.log("initDate: "+this.initDate);
+      console.log("finishDate: "+this.finishDate);
+      console.log("todayDate: "+this.todayDate);
+      
+      if (this.qtdGuest > 0 && this.nameBoleto !== null && this.emailBoleto !== null && this.cpfBoleto !== null && this.initDate < this.finishDate){
+        console.log("InitDate1: "+this.initDate);
+        console.log("FishDate1: "+this.finishDate);
+
+>>>>>>> 7086356a9fa41474add5bda432b4fcdc2346f251
         const alert = await this.alertController.create({
           header: 'Yay!',
           message: 'Reserva concluída!',
@@ -166,7 +186,9 @@ export class BookingPage {
         alert.present();
       }
       /* Aqui deve verificar se finishDate <= initDate */
-      else if (this.qtdGuest <= 0 ){
+      else if (this.qtdGuest <= 0 || this.initDate >= this.finishDate){
+        console.log("InitDate2: "+this.initDate);
+        console.log("FishDate2: "+this.finishDate);
         const alert = await this.alertController.create({
           header: 'Que pena!',
           message: 'Alguns campos estão preenchidos incorretamente ou não foram preenchidos. Verifique se o check-in e o check-out estão preenchidos corretamente e se a quantidade de hóspedes adultos é maior que 0.',
@@ -180,6 +202,8 @@ export class BookingPage {
         buttons: ['OK']
       });
       alert.present();
+    }else{
+      console.log("Condição Inv!");
     }
   }
 

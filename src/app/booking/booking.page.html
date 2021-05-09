@@ -70,9 +70,9 @@
       </ion-row>
       <ion-row *ngIf="editDate2 && close" class="ion-align-items-center">
         <ion-col>
-          <ion-datetime displayFormat="DD MM YY" placeholder="Check-in" [(ngModel)]="initDate"></ion-datetime>
+          <ion-datetime  placeholder="Check-in" [(ngModel)]="initDate"></ion-datetime>
           <hr color=#fff>
-          <ion-datetime displayFormat="DD MM YY" placeholder="Check-out" [(ngModel)]="finishDate"></ion-datetime>
+          <ion-datetime  placeholder="Check-out" [(ngModel)]="finishDate"></ion-datetime>
         </ion-col>
         <ion-col size="auto">
           <ion-button color="danger" (click)="closed()" fill="clear">
@@ -80,6 +80,7 @@
           </ion-button>
         </ion-col>
       </ion-row>
+      
       <ion-row class="ion-align-items-center">
         <ion-col>
           <h5><strong>Hóspedes</strong></h5>
@@ -125,6 +126,7 @@
           <ion-button color="danger" (click)="closed2()" size="small">Salvar</ion-button>
         </ion-col>
       </ion-row>
+
       <hr color=#DCDCDC>
       <ion-row class="ion-align-items-center">
         <ion-col>
