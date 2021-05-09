@@ -1,11 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ModalController } from '@ionic/angular';
-
-export interface boleto {
-  cpf: string;
-  name: string;
-  email: string;
-}
+import { AlertController, ModalController } from '@ionic/angular';
+import { NavController } from '@ionic/angular';
+import { BookingPage } from '../booking/booking.page';
 
 @Component({
   selector: 'app-modal-pagamento',
@@ -13,47 +9,42 @@ export interface boleto {
   styleUrls: ['./modal-pagamento.page.scss'],
 })
 export class ModalPagamentoPage implements OnInit {
-  public creditCard = false;
-  public debitCard = false;
   public boleto = false;
-  public name; 
-  public cpf;
-  public email;
 
-  public infosBoletos = {}
-
-
-  public formCredit(){
-    this.creditCard = true;
-    this.debitCard = false;
-    this.boleto = false;
-  }
+  /*armazenamento offline dessas infos*/
+  public name =  null;
+  public cpf = null;
+  public email = null;
 
   public formBoleto(){
     this.boleto = true;
-    this.creditCard = false;
-    this.debitCard = false;
   }
 
-  public formDebit(){
-    this.debitCard = true;
-    this.boleto = false;
-    this.creditCard = false;
-  }
-
-  constructor(private modalController: ModalController) { }
+  constructor(private modalController: ModalController, private alertController: AlertController, private navCtrl: NavController) { }
 
   public cancelPay(){
-    console.log('Informações inseridas foram deletadas');
-    this.modalController.dismiss();
+    this.modalController.dismiss({
+        name: this.name,
+        cpf: this.cpf,
+        email: this.email
+    });
   }
 
-  public savePay(){
-    
-      console.log('Pagamento Salvo!');
-      this.modalController.dismiss();
-    
-    
+  public async savePay(){
+      if (this.name != null && this.cpf != null && this.email != null){
+        this.modalController.dismiss({
+          name: this.name,
+          cpf: this.cpf,
+          email: this.email
+        });
+      }else{
+        const alert = await this.alertController.create({
+          header: 'Atenção!',
+          message: 'Você não preencheu todas as informações',
+          buttons: ['Sair']
+        });
+        alert.present();
+      }
   }
 
   ngOnInit() {

@@ -5,7 +5,7 @@
 </ion-header>
 
 <ion-content>
-  <ion-list>    
+  <ion-list>
     <ion-item (click)="formBoleto()">
       <ion-label>
         <ion-icon name="document-outline"></ion-icon>
@@ -18,17 +18,17 @@
     <ion-card class="editCard ion-padding">
       <ion-row>
         <ion-icon name="alert-outline"></ion-icon>
-        <ion-input class="ion-padding" placeholder="Nome Completo"></ion-input>
+        <ion-input class="ion-padding" [(ngModel)] = "name" placeholder="Nome Completo"></ion-input>
       </ion-row>
       <hr>
       <ion-row>
         <ion-icon name="alert-outline"></ion-icon>
-        <ion-input class="ion-padding" placeholder="CPF"></ion-input>
+        <ion-input class="ion-padding" [(ngModel)] = "cpf" placeholder="CPF"></ion-input>
       </ion-row>
       <hr>
       <ion-row>
         <ion-icon name="alert-outline"></ion-icon>
-        <ion-input class="ion-padding" placeholder="E-mail"></ion-input>
+        <ion-input class="ion-padding" [(ngModel)] = "email" placeholder="E-mail"></ion-input>
       </ion-row>
       <hr>
       <ion-row class="ion-text-center">

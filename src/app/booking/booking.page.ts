@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AlertController, ModalController } from '@ionic/angular';
 import { ModalPagamentoPage } from '../modal-pagamento/modal-pagamento.page';
 import { CafofoHomeService } from '../services/cafofo-home.service';
-import { NavController } from '@ionic/angular';
+import { NavController, NavParams } from '@ionic/angular';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -10,7 +10,7 @@ import { ActivatedRoute } from '@angular/router';
   templateUrl: './booking.page.html',
   styleUrls: ['./booking.page.scss'],
 })
-export class BookingPage implements OnInit {
+export class BookingPage {
 
   public id;
   public home;
@@ -22,6 +22,11 @@ export class BookingPage implements OnInit {
   public cleaningFee = 45.00;
   public serviceFee = 60.00;
   public totalCost;
+  public travelWork;
+  public result;
+  public nameBoleto = null;
+  public cpfBoleto = null;
+  public emailBoleto = null;
 
   // tslint:disable-next-line:max-line-length
   constructor( route: ActivatedRoute, private alertController: AlertController, private modalController: ModalController, private cafofohomeService: CafofoHomeService, private navCtrl: NavController) {
@@ -49,7 +54,6 @@ export class BookingPage implements OnInit {
   public addCupom = false;
   public removeButtonCupom = true;
   public saveGuest = true;
-
   public editAddPay = true;
 
   public addGuest(){
@@ -100,7 +104,6 @@ export class BookingPage implements OnInit {
   public saveWork(){
     this.savedWork = false;
     this.removeWork = true;
-    console.log('Motivo da viagem salvo no banco de dados');
   }
 
   public editDate(){
@@ -122,17 +125,61 @@ export class BookingPage implements OnInit {
     this.saveGuest = false;
   }
 
-  public async booking(){
-    const alert = await this.alertController.create({
-      header: 'Yay!',
-      message: 'Reserva concluída!',
-      buttons: ['OK']
+  public async presentModal() {
+    this.editAddPay = false;
+    const modal = await this.modalController.create({
+    component: ModalPagamentoPage
     });
-    alert.present();
-    console.log('Reserva a ser incluída no banco de dados');
+    await modal.present();
+
+    this.result = await modal.onDidDismiss();
+    this.nameBoleto = this.result.data.name;
+    this.cpfBoleto = this.result.data.cpf;
+    this.emailBoleto = this.result.data.email;
+    console.log(this.nameBoleto);
   }
 
-  public  async moreInfo(){
+  public async presentModal2() {
+    const modal = await this.modalController.create({
+    component: ModalPagamentoPage
+    });
+    await modal.present();
+
+    this.result = await modal.onDidDismiss();
+    this.nameBoleto = this.result.data.name;
+    this.cpfBoleto = this.result.data.cpf;
+    this.emailBoleto = this.result.data.email;
+  }
+
+  public async booking(){
+      /*Aqui deve verificar também se initDate > finishDate e initDate > diaAtual (pode ser uma váriavel inicializada como new Date()*/
+      if (this.qtdGuest > 0 && this.nameBoleto !== null && this.emailBoleto !== null && this.cpfBoleto !== null){
+        const alert = await this.alertController.create({
+          header: 'Yay!',
+          message: 'Reserva concluída!',
+          buttons: ['OK']
+        });
+        alert.present();
+      }
+      /* Aqui deve verificar se finishDate <= initDate */
+      else if (this.qtdGuest <= 0 ){
+        const alert = await this.alertController.create({
+          header: 'Que pena!',
+          message: 'Alguns campos estão preenchidos incorretamente ou não foram preenchidos. Verifique se o check-in e o check-out estão preenchidos corretamente e se a quantidade de hóspedes adultos é maior que 0.',
+          buttons: ['OK']
+        });
+        alert.present();
+      } else if (this.nameBoleto === null || this.cpfBoleto === null || this.emailBoleto === null){
+      const alert = await this.alertController.create({
+        header: 'Que pena!',
+        message: 'Adicione as informações para pagamento!',
+        buttons: ['OK']
+      });
+      alert.present();
+    }
+  }
+
+  public async moreInfo(){
     const alert = await this.alertController.create({
       header: 'Informações de preço',
       subHeader: 'Por que pago uma Taxa de Serviço?',
@@ -140,24 +187,6 @@ export class BookingPage implements OnInit {
       buttons: ['Sair']
     });
     alert.present();
-  }
-
-  public async presentModal() {
-    this.editAddPay = false;
-    const modal = await this.modalController.create({
-    component: ModalPagamentoPage
-    });
-    return await modal.present();
-  }
-
-  public async presentModal2() {
-    const modal = await this.modalController.create({
-    component: ModalPagamentoPage
-    });
-    return await modal.present();
-  }
-
-   ngOnInit() {
   }
 
 }

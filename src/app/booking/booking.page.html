@@ -150,7 +150,7 @@
       </ion-row>
       <ion-row *ngIf="textWork2 && savedWork && optionWork" class="ion-align-items-center">
         <ion-col>
-          <ion-textarea class="ion-padding"></ion-textarea>
+          <ion-textarea class="ion-padding" [(ngModel)] = "travelWork"></ion-textarea>
         </ion-col>
         <ion-col size="auto">
           <ion-button (click)="saveWork()" color="danger">
