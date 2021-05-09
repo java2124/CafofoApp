@@ -8,7 +8,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'login',
+    redirectTo: 'explore',
     pathMatch: 'full'
   },
   {
@@ -42,7 +42,8 @@ const routes: Routes = [
   {
     path: 'autenticacao',
     loadChildren: () => import('./autenticacao/autenticacao.module').then( m => m.AutenticacaoPageModule)
-  },  {
+  },
+  {
     path: 'find',
     loadChildren: () => import('./find/find.module').then( m => m.FindPageModule)
   },
