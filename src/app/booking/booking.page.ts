@@ -5,12 +5,14 @@ import { CafofoHomeService } from '../services/cafofo-home.service';
 import { NavController, NavParams } from '@ionic/angular';
 import { ActivatedRoute } from '@angular/router';
 
+
 @Component({
   selector: 'app-booking',
   templateUrl: './booking.page.html',
   styleUrls: ['./booking.page.scss'],
 })
 export class BookingPage {
+
 
   public id;
   public home;
@@ -55,6 +57,7 @@ export class BookingPage {
   public removeButtonCupom = true;
   public saveGuest = true;
   public editAddPay = true;
+
 
   public addGuest(){
     this.qtdGuest += 1;
@@ -154,6 +157,7 @@ export class BookingPage {
   public async booking(){
       /*Aqui deve verificar também se initDate > finishDate e initDate > diaAtual (pode ser uma váriavel inicializada como new Date()*/
       if (this.qtdGuest > 0 && this.nameBoleto !== null && this.emailBoleto !== null && this.cpfBoleto !== null){
+        this.cafofohomeService.addReserva(this.home.name, this.home.descricao, this.home.precoDia, this.home.locais, this.nameBoleto);
         const alert = await this.alertController.create({
           header: 'Yay!',
           message: 'Reserva concluída!',

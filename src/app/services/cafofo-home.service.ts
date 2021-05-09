@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Storage } from '@ionic/storage-angular';
 
 type cidades = 'São Roque' | 'Guaruja' | 'Santos' | 'Rio de Janeiro' | 'Socorro' | 'Campos do Jordão'| 'Paraty' | 'São Sebastião'| 'Campinas';
 type pets = 'Aceita Pet' | 'Não Aceita Pet';
@@ -6,6 +7,13 @@ type rua = 'Silenciosa' | 'Não Silenciosa';
 type academia = 'Academia' | 'Sem Academia';
 type garagem = 'Garagem' | 'Sem garagem';
 
+export interface Reservas {
+  nomeCasa: string;
+  descricao: string;
+  precoDia: number;
+  cidade: string;
+  name: string;
+}
 
 export interface Acomodacao {
   id: number;
@@ -30,9 +38,10 @@ export interface Acomodacao {
 
 export class CafofoHomeService {
   public cidades: Acomodacao [ ];
+  public allReservas: Reservas [] = [];
 
 
-  constructor() {
+  constructor(private storage: Storage) {
 
     this.cidades = [
       {
@@ -172,10 +181,23 @@ export class CafofoHomeService {
         garagens: 'Garagem'
       }
     ];
+
+    this.loadFromStorage();
+  }
+
+  private async loadFromStorage() {
+    const reservas = await this.storage.get('reservas') as Reservas[];
+    if (reservas) {
+      this.allReservas.push(...reservas);
+    }
   }
 
   public all(){
     return this.cidades;
+  }
+
+  public Reservas(){
+    return this.allReservas;
   }
 
   public getId(id: number){
@@ -183,5 +205,18 @@ export class CafofoHomeService {
   }
   public get(local: string) {
     return { ...this.cidades.find(s => s.locais === local) };
+  }
+
+  public addReserva(casa: string, d: string, p: number, c: string, n: string){
+
+    const contante = {
+      nomeCasa: casa,
+      descricao: d,
+      precoDia: p,
+      cidade: c,
+      name: n
+    };
+    this.allReservas.push(contante);
+    this.storage.set('reservas', this.allReservas);
   }
 }

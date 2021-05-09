@@ -46,6 +46,10 @@ const routes: Routes = [
     path: 'find',
     loadChildren: () => import('./find/find.module').then( m => m.FindPageModule)
   },
+  {
+    path: 'historico',
+    loadChildren: () => import('./historico/historico.module').then( m => m.HistoricoPageModule)
+  },
 
 
 
