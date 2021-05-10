@@ -28,13 +28,13 @@
       <ion-row>
         <ion-col>
           <div>
-            <ion-input class="botao-entrar ion-padding" placeholder="E-mail"></ion-input>
+            <ion-input id="email" type="text" class="botao-entrar ion-padding" placeholder="E-mail"></ion-input>
             <hr>
-            <ion-input class="botao-entrar ion-padding" placeholder="Senha"></ion-input>
+            <ion-input id="pass" type="password" class="botao-entrar ion-padding" placeholder="Senha"></ion-input>
             <hr><hr>
             <ion-row>
               <ion-col width-50 style="text-align: center">
-                <ion-button color="light" routerLink="/explore" (click) = "entrar()">Entrar</ion-button>
+                <ion-button color="light" (click) = "entrar()">Entrar</ion-button>
               </ion-col>
             </ion-row>
           </div>

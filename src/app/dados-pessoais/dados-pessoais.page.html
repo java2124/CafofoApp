@@ -34,25 +34,20 @@
       <ion-col class="form-format">
         <form action="">
           <label for="">Nome</label><br>
-          <input class="botao-entrar" type="text" value="João" readonly="true"><br><br>
+          <input id="nome" class="botao-entrar" type="text" readonly="true"><br><br>
 
           <label for="">Sobrenome</label><br>
-          <input class="botao-entrar" type="text" value="Silva" readonly="true"><br><br>
+          <input id="sobrenome" class="botao-entrar" type="text" readonly="true"><br><br>
 
           <label for="">Gênero</label><br>
-          <input class="botao-entrar" type="text" value="Masculino"><br><br>
-
-          <label for="">Data de Nasc</label><br>
-          <input class="botao-entrar" type="date" value="29/09/1990"><br><br>
+          <input id="gen" class="botao-entrar" type="text"><br><br>
 
           <label for="">E-mail</label><br>
-          <input readonly="true" value="joao.silva158@gmail.com" type="email" required="required" class="input-text botao-entrar" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"><br><br>
+          <input id="email" readonly="true" type="text" required="required" class="input-text botao-entrar"><br><br>
 
           <label for="">Número de Telefone</label><br>
-          <input value="(13) 95155-6556" class="botao-entrar" type="tel" id="phone" required="required" maxlength="15" name="phone" pattern="\([0-9]{2}\) [0-9]{4,6}-[0-9]{3,4}$"><br><br>
+          <input id="tel" class="botao-entrar" type="text"><br><br>
 
-          <label for="">Documento de identificação</label><br>
-          <input class="botao-entrar" type="file">
         </form>
       </ion-col>
     </ion-row>
