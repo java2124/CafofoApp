@@ -22,7 +22,9 @@ export class AutenticacaoPage implements OnInit {
     
   }
 
-  constructor() { }
+  constructor() { 
+    
+  }
 
   ngOnInit() {
   }
