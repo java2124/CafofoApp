@@ -1,9 +1,44 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>historico</ion-title>
-  </ion-toolbar>
+  <ion-row class="ion-align-items-center">
+    <ion-col>
+      <div class="ion-float-start ion-padding">
+        <span>
+          <ion-back-button color="dark" class="save-button" defaultHref="/explore">
+          </ion-back-button>
+        </span>
+      </div>
+    </ion-col>
+    <ion-col>
+      <div>
+        <span class="ion-float-end ion-padding">
+          <ion-text color="dark" class="save-button">Historico</ion-text>
+        </span>
+      </div>
+    </ion-col>
+  </ion-row>
 </ion-header>
 
 <ion-content>
+
+  <ion-list>
+
+    <ion-item *ngFor="let reserva of historicoReservas">
+      <ion-card class="ion-padding">
+        <ion-card-title>{{reserva.nomeCasa}}</ion-card-title>
+        <hr>
+        <ion-card-subtitle>
+          <ion-icon name="map-outline" color="danger"></ion-icon>&nbsp;{{reserva.cidade}} &nbsp; <ion-icon name="card-outline" color="danger">         
+          </ion-icon>&nbsp;{{reserva.precoDia}} (Dia)
+        </ion-card-subtitle>
+        <ion-card-content>
+          {{reserva.descricao}} <br>
+          <ion-text color="primary">
+            <h5>Quem reservou?</h5>
+          </ion-text> {{reserva.name}}
+        </ion-card-content>
+      </ion-card>
+
+    </ion-item>
+  </ion-list>
 
 </ion-content>

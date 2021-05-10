@@ -14,6 +14,10 @@ export class HistoricoPage implements OnInit {
     this.historicoReservas = cafofoHomeService.Reservas();
   }
 
+  public console(){
+    console.log(this.historicoReservas);
+  }
+
   ngOnInit() {
   }
 
