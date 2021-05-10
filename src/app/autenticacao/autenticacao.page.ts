@@ -8,7 +8,18 @@ import { Component, OnInit } from '@angular/core';
 export class AutenticacaoPage implements OnInit {
 
   public entrar(){
-    console.log('Login feito com sucesso!');
+    let email = (document.getElementById('email') as HTMLInputElement).value
+    let senha = (document.getElementById('pass') as HTMLInputElement).value
+
+    if (email == localStorage.getItem('email') && senha == localStorage.getItem('senha')) {
+      console.log("OK!")
+      window.location.href="/explore"
+    }
+
+    else {
+      alert("Usuário ou senha incorretos!")
+    }
+    
   }
 
   constructor() { }
