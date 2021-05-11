@@ -163,8 +163,9 @@ export class BookingPage {
 
   public async booking(){
       /*Aqui deve verificar também se initDate > finishDate e initDate > diaAtual (pode ser uma váriavel inicializada como new Date()*/
-      console.log("initDate: "+this.initDate);
-      console.log("finishDate: "+this.finishDate);
+      console.log('initDate: ' + this.initDate);
+      console.log('finishDate: ' + this.finishDate);
+      // tslint:disable-next-line:max-line-length
       if (this.qtdGuest > 0 && this.nameBoleto !== null && this.emailBoleto !== null && this.cpfBoleto !== null && this.initDate < this.finishDate){
         this.cafofohomeService.addReserva(this.home.name, this.home.descricao, this.home.precoDia, this.home.locais, this.nameBoleto);
         const alert = await this.alertController.create({
@@ -176,8 +177,8 @@ export class BookingPage {
       }
       /* Aqui deve verificar se finishDate <= initDate */
       else if (this.qtdGuest <= 0 || this.initDate >= this.finishDate){
-        console.log('InitDate2: '+this.initDate);
-        console.log('FishDate2: '+this.finishDate);
+        console.log('InitDate2: ' + this.initDate);
+        console.log('FishDate2: ' + this.finishDate);
         const alert = await this.alertController.create({
           header: 'Que pena!',
           message: 'Alguns campos estão preenchidos incorretamente ou não foram preenchidos. Verifique se o check-in e o check-out estão preenchidos corretamente e se a quantidade de hóspedes adultos é maior que 0.',

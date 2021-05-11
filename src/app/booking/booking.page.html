@@ -3,7 +3,7 @@
     <ion-col>
       <div class="ion-float-start ion-padding">
         <span>
-          <ion-back-button color="dark" class="save-button" defaultHref="/detalhes">
+          <ion-back-button color="dark" class="save-button" [routerLink] = "['/detalhes', home.id]">
           </ion-back-button>
         </span>
       </div>
@@ -80,7 +80,7 @@
           </ion-button>
         </ion-col>
       </ion-row>
-      
+
       <ion-row class="ion-align-items-center">
         <ion-col>
           <h5><strong>Hóspedes</strong></h5>
