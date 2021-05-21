@@ -17,7 +17,8 @@ export class BookingPage {
   public id;
   public home;
   public priceDay;
-  public days = 5;
+  public days = 0;
+  public daysFake = 0;
   public priceTotalDays;
   public deductionWeek;
   public deductionWeekTotal;
@@ -39,6 +40,7 @@ export class BookingPage {
        this.deductionWeek = 20;
        this.deductionWeekTotal = (this.priceTotalDays * (this.deductionWeek * (this.days / 7))) / 100;
        this.totalCost = (this.priceTotalDays + this.cleaningFee + this.serviceFee) - this.deductionWeekTotal;
+
    }
 
   public optionWork = false;
@@ -46,6 +48,8 @@ export class BookingPage {
   public todayDate = new Date().toISOString();
   public initDate = new Date().toISOString();
   public finishDate = new Date().toISOString();
+  public dateI = new Date();
+  public dateF = new Date();
   public close = true;
   public editGuest2 = false;
   public qtdGuest = 0;
@@ -54,19 +58,17 @@ export class BookingPage {
   public savedWork = true;
   public addWork = true;
   public removeWork = false;
-  public addCupom = false;
-  public removeButtonCupom = true;
   public saveGuest = true;
   public editAddPay = true;
   public msg1;
   public msg2;
 
-
-
-
   public addGuest(){
-    this.qtdGuest += 1;
+    if (this.qtdGuest + this.qtdGuestKids < this.home.qtdCamas){
+        this.qtdGuest += 1;
+    }
   }
+
 
   public removeGuest(){
     if (this.qtdGuest > 0){
@@ -75,7 +77,9 @@ export class BookingPage {
   }
 
   public addGuestKids(){
-    this.qtdGuestKids += 1;
+    if (this.qtdGuest + this.qtdGuestKids < this.home.qtdCamas){
+      this.qtdGuestKids += 1;
+    }
   }
 
   public removeGuestKids(){
@@ -87,20 +91,6 @@ export class BookingPage {
   public clear(){
     this.qtdGuest = 0;
     this.qtdGuestKids = 0;
-  }
-
-  public cupom(){
-    this.addCupom = true;
-    this.removeButtonCupom = false;
-  }
-
-  public notCupom(){
-    this.removeButtonCupom = true;
-    this.addCupom = false;
-  }
-
-  public okCupom(){
-    console.log('Cupom adicionado!');
   }
 
   public textWork(){
@@ -119,8 +109,6 @@ export class BookingPage {
     this.close = true;
   }
 
-
-
   public editGuest(){
     this.editGuest2 = true;
     this.saveGuest = true;
@@ -128,6 +116,18 @@ export class BookingPage {
 
   public closed(){
     this.close = false;
+    this.dateI = new Date (this.initDate);
+    console.log(this.dateI);
+    this.dateF = new Date (this.finishDate);
+    console.log(this.dateF);
+    this.daysFake = Math.abs (this.dateF.getTime() - this.dateI.getTime());
+    this.days = Math.ceil(this.daysFake / (1000 * 3600 * 24));
+    console.log (this.days);
+    this.priceDay = this.home.precoDia;
+    this.priceTotalDays = this.priceDay * this.days;
+    this.deductionWeek = 20;
+    this.deductionWeekTotal = (this.priceTotalDays * (this.deductionWeek * (this.days / 7))) / 100;
+    this.totalCost = (this.priceTotalDays + this.cleaningFee + this.serviceFee) - this.deductionWeekTotal;
   }
 
   public closed2(){
@@ -166,7 +166,7 @@ export class BookingPage {
       console.log('initDate: ' + this.initDate);
       console.log('finishDate: ' + this.finishDate);
       // tslint:disable-next-line:max-line-length
-      if (this.qtdGuest > 0 && this.nameBoleto !== null && this.emailBoleto !== null && this.cpfBoleto !== null && this.initDate< this.finishDate && this.todayDate>= this.initDate){
+      if (this.qtdGuest > 0 && this.nameBoleto !== null && this.emailBoleto !== null && this.cpfBoleto !== null && this.initDate < this.finishDate && this.todayDate >= this.initDate){
         this.cafofohomeService.addReserva(this.home.name, this.home.descricao, this.home.precoDia, this.home.locais, this.nameBoleto);
         const alert = await this.alertController.create({
           header: 'Yay!',
@@ -176,7 +176,7 @@ export class BookingPage {
         alert.present();
       }
       /* Aqui deve verificar se finishDate <= initDate */
-      else if (this.qtdGuest <= 0 || this.initDate >= this.finishDate || this.todayDate<this.initDate){
+      else if (this.qtdGuest <= 0 || this.initDate >= this.finishDate || this.todayDate < this.initDate){
         console.log('InitDate2: ' + this.initDate);
         console.log('FishDate2: ' + this.finishDate);
         const alert = await this.alertController.create({

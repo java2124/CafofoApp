@@ -244,24 +244,6 @@
           </ion-col>
         </ion-col>
       </ion-row>
-      <ion-row class="ion-align-items-center">
-        <ion-col *ngIf="addCupom">
-          <ion-input class="borderInput"></ion-input>
-        </ion-col>
-        <ion-col *ngIf="addCupom" size="auto">
-          <ion-button (click)="okCupom()" color="danger">
-            <ion-icon name="checkmark-done-outline"></ion-icon>
-          </ion-button>
-        </ion-col>
-        <ion-col *ngIf="addCupom" size="auto">
-          <ion-button (click)="notCupom()" fill="clear">
-            <ion-icon color="danger" name="close-sharp"></ion-icon>
-          </ion-button>
-        </ion-col>
-        <ion-col *ngIf="removeButtonCupom" size="auto">
-          <ion-button (click)="cupom()" color="danger" size="small">Inserir Cupom</ion-button>
-        </ion-col>
-      </ion-row>
     </ion-card>
   </ion-grid>
 
