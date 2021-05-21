@@ -165,8 +165,9 @@ export class BookingPage {
       /*Aqui deve verificar também se initDate > finishDate e initDate > diaAtual (pode ser uma váriavel inicializada como new Date()*/
       console.log('initDate: ' + this.initDate);
       console.log('finishDate: ' + this.finishDate);
+      console.log('finishDate: ' + this.todayDate);
       // tslint:disable-next-line:max-line-length
-      if (this.qtdGuest > 0 && this.nameBoleto !== null && this.emailBoleto !== null && this.cpfBoleto !== null && this.initDate < this.finishDate && this.todayDate >= this.initDate){
+      if (this.qtdGuest > 0 && this.nameBoleto !== null && this.emailBoleto !== null && this.cpfBoleto !== null && this.initDate < this.finishDate && this.initDate >= this.todayDate ){
         this.cafofohomeService.addReserva(this.home.name, this.home.descricao, this.home.precoDia, this.home.locais, this.nameBoleto);
         const alert = await this.alertController.create({
           header: 'Yay!',
@@ -176,7 +177,7 @@ export class BookingPage {
         alert.present();
       }
       /* Aqui deve verificar se finishDate <= initDate */
-      else if (this.qtdGuest <= 0 || this.initDate >= this.finishDate || this.todayDate < this.initDate){
+      else if (this.qtdGuest <= 0 || this.initDate >= this.finishDate || this.todayDate > this.initDate){
         console.log('InitDate2: ' + this.initDate);
         console.log('FishDate2: ' + this.finishDate);
         const alert = await this.alertController.create({
