@@ -43,9 +43,9 @@ export class BookingPage {
 
   public optionWork = false;
   public editDate2 = false;
-  public todayDate = new Date();
-  public initDate = new Date();
-  public finishDate = new Date();
+  public todayDate = new Date().toISOString();
+  public initDate = new Date().toISOString();
+  public finishDate = new Date().toISOString();
   public close = true;
   public editGuest2 = false;
   public qtdGuest = 0;
@@ -166,7 +166,7 @@ export class BookingPage {
       console.log('initDate: ' + this.initDate);
       console.log('finishDate: ' + this.finishDate);
       // tslint:disable-next-line:max-line-length
-      if (this.qtdGuest > 0 && this.nameBoleto !== null && this.emailBoleto !== null && this.cpfBoleto !== null && this.initDate < this.finishDate){
+      if (this.qtdGuest > 0 && this.nameBoleto !== null && this.emailBoleto !== null && this.cpfBoleto !== null && this.initDate< this.finishDate && this.todayDate>= this.initDate){
         this.cafofohomeService.addReserva(this.home.name, this.home.descricao, this.home.precoDia, this.home.locais, this.nameBoleto);
         const alert = await this.alertController.create({
           header: 'Yay!',
@@ -176,7 +176,7 @@ export class BookingPage {
         alert.present();
       }
       /* Aqui deve verificar se finishDate <= initDate */
-      else if (this.qtdGuest <= 0 || this.initDate >= this.finishDate){
+      else if (this.qtdGuest <= 0 || this.initDate >= this.finishDate || this.todayDate<this.initDate){
         console.log('InitDate2: ' + this.initDate);
         console.log('FishDate2: ' + this.finishDate);
         const alert = await this.alertController.create({
@@ -193,7 +193,9 @@ export class BookingPage {
       });
       alert.present();
     }else{
-      console.log('Condição Inv!');
+      console.log('Condição Invalida!');
+      console.log(this.initDate);
+      console.log(this.finishDate);
     }
   }
 
