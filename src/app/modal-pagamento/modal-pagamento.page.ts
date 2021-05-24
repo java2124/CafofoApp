@@ -11,7 +11,7 @@ import { BookingPage } from '../booking/booking.page';
 export class ModalPagamentoPage implements OnInit {
   public boleto = false;
 
-  /*armazenamento offline dessas infos*/
+  /*Informações que são preenchidas no formulário HTML*/
   public name =  null;
   public cpf = null;
   public email = null;
@@ -22,6 +22,8 @@ export class ModalPagamentoPage implements OnInit {
 
   constructor(private modalController: ModalController, private alertController: AlertController, private navCtrl: NavController) { }
 
+  /* Método que é chamado após o usuario clicar em cancelar no modal pagamento */
+  /* Ele manda os parâmetros como nulo para a .ts de reserva (booking)*/
   public cancelPay(){
     this.modalController.dismiss({
         name: this.name,
@@ -30,6 +32,9 @@ export class ModalPagamentoPage implements OnInit {
     });
   }
 
+  /* Método que é chamado após o usuario clicar em salvar no modal pagamento */
+  /* Ele verifica se todas as infos são doferentes de nulo, se não passar na verificação, ele não deixa salvar*/
+  /* Ao salvar, ele manda para a .ts de reserva (booking) os valores das variáveis preenchidas no modal*/
   public async savePay(){
       if (this.name != null && this.cpf != null && this.email != null){
         this.modalController.dismiss({

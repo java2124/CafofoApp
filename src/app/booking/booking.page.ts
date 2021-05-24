@@ -134,6 +134,7 @@ export class BookingPage {
     this.saveGuest = false;
   }
 
+  /*Método que chama o Modal*/
   public async presentModal() {
     this.editAddPay = false;
     const modal = await this.modalController.create({
@@ -141,6 +142,7 @@ export class BookingPage {
     });
     await modal.present();
 
+    /*Pega os valores das informações do boleto que o modal passa ao ser fechado*/
     this.result = await modal.onDidDismiss();
     this.nameBoleto = this.result.data.name;
     this.cpfBoleto = this.result.data.cpf;
@@ -148,12 +150,14 @@ export class BookingPage {
     console.log(this.nameBoleto);
   }
 
+  /*Método que chama o Modal*/
   public async presentModal2() {
     const modal = await this.modalController.create({
     component: ModalPagamentoPage
     });
     await modal.present();
 
+    /*Pega os valores das informações do boleto que o modal passa ao ser fechado*/
     this.result = await modal.onDidDismiss();
     this.nameBoleto = this.result.data.name;
     this.cpfBoleto = this.result.data.cpf;
@@ -166,6 +170,8 @@ export class BookingPage {
       console.log('initDate: ' + this.initDate);
       console.log('finishDate: ' + this.finishDate);
       console.log('finishDate: ' + this.todayDate);
+
+      /*IF que verifica se as infos de pagamento do boleto foram preenchidas no Modal e inclui a reserva */
       // tslint:disable-next-line:max-line-length
       if (this.qtdGuest > 0 && this.nameBoleto !== null && this.emailBoleto !== null && this.cpfBoleto !== null && this.initDate < this.finishDate && this.initDate >= this.todayDate ){
         this.cafofohomeService.addReserva(this.home.name, this.home.descricao, this.home.precoDia, this.home.locais, this.nameBoleto);

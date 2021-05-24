@@ -220,6 +220,7 @@
     </ion-card>
   </ion-grid>
 
+  <!--Grid que pega as informações do boleto-->
   <ion-grid>
     <ion-card class="ion-padding">
       <ion-row>
@@ -235,6 +236,7 @@
         </ion-col>
         <ion-col size="auto" *ngIf="editAddPay">
           <ion-button (click)="presentModal()" color="danger">
+            <!--Botão que chama o modal de pagamento-->
             <ion-icon slot="start" name="wallet-outline"></ion-icon>ADD
           </ion-button>
         </ion-col>

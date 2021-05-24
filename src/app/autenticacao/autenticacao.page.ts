@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AlertController} from '@ionic/angular';
 
 @Component({
   selector: 'app-autenticacao',
@@ -7,23 +8,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AutenticacaoPage implements OnInit {
 
-  public entrar(){
-    let email = (document.getElementById('email') as HTMLInputElement).value
-    let senha = (document.getElementById('pass') as HTMLInputElement).value
+  public email;
+  public senha;
 
-    if (email == localStorage.getItem('email') && senha == localStorage.getItem('senha')) {
-      console.log("OK!")
-      window.location.href="/explore"
+  constructor(private alertController: AlertController) {}
+
+  public async entrar(){
+    this.email = (document.getElementById('email') as HTMLInputElement).value;
+    this.senha = (document.getElementById('pass') as HTMLInputElement).value;
+
+    if (this.email === localStorage.getItem('email') && this.senha === localStorage.getItem('senha')) {
+      console.log('OK!');
+      window.location.href = '/explore';
     }
 
+    /*alert que fica na dimensão do dispositivo*/
     else {
-      alert("Usuário ou senha incorretos!")
+      const alert = await this.alertController.create({
+        header: 'Que pena!',
+        message: 'Usuário ou senha incorretos!',
+        buttons: ['OK']
+      });
+      alert.present();
     }
-    
-  }
-
-  constructor() { 
-    
   }
 
   ngOnInit() {
