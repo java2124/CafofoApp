@@ -1,4 +1,5 @@
 import { Component, OnInit, Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { AlertController} from '@ionic/angular';
 import {CafofoHomeService} from '../services/cafofo-home.service';
 
@@ -18,7 +19,7 @@ export class AutenticacaoPage {
   public email;
   public senha;
 
-  constructor(private alertController: AlertController, private cafofoHomeService:CafofoHomeService ) {}
+  constructor(private alertController: AlertController, private cafofoHomeService:CafofoHomeService, private router: Router ) {}
 
   public entrar(){
     this.email = (document.getElementById('email') as HTMLInputElement).value;
@@ -26,7 +27,7 @@ export class AutenticacaoPage {
 
     if (this.email === localStorage.getItem('email') && this.senha === localStorage.getItem('senha')) {
       this.cafofoHomeService.oklogin(this.email);
-      window.location.href = '/explore';
+      this.router.navigateByUrl('/explore');
     }
 
     else {

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cadastro',
@@ -21,10 +22,10 @@ export class CadastroPage implements OnInit {
     localStorage.setItem('sobrenome', last)
     localStorage.setItem('genero', gen)
     localStorage.setItem('tel', tel)
-    window.location.href='/autenticacao'
+    this.router.navigateByUrl('/autenticacao');
   }
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
