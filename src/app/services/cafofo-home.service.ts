@@ -15,6 +15,11 @@ export interface Reservas {
   name: string;
 }
 
+export interface Login {
+  email: string;
+  estaLogado: boolean;
+}
+
 export interface Acomodacao {
   id: number;
   name: string;
@@ -39,10 +44,10 @@ export interface Acomodacao {
 export class CafofoHomeService {
   public cidades: Acomodacao [ ];
   public allReservas: Reservas [] = [];
+  private isLogin = false;
 
 
   constructor(private storage: Storage) {
-
     this.cidades = [
       {
         id: 1,
@@ -218,5 +223,28 @@ export class CafofoHomeService {
     };
     this.allReservas.push(contante);
     this.storage.set('reservas', this.allReservas);
+  }
+
+  public oklogin (email1){
+    this.isLogin = true;
+    const login : Login []= [{email: email1, estaLogado: this.isLogin}];
+    this.storage.set('login', login);
+    this.storage.set('logado', this.isLogin);
+  }
+
+  public okLogout (){
+    this.isLogin = false;
+    const login : Login []= [{email: null, estaLogado: this.isLogin}];
+    this.storage.set('login', login);
+    this.storage.set('logado', this.isLogin);
+  }
+
+  public async returnLogin(){
+    const login = await this.storage.get('logado');
+    if(login == false || login == null){
+      return this.isLogin;
+    }else{
+      return login;
+    }
   }
 }
