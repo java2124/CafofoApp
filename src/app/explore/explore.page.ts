@@ -21,5 +21,9 @@ export class ExplorePage {
     this.ShowSearch = value;
   }
 
+  public logoutExplore(){
+    this.cafofoHomeService.okLogout();
+  }
+
   constructor(private cafofoHomeService: CafofoHomeService) { }
 }
