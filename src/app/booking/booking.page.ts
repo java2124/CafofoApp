@@ -45,9 +45,9 @@ export class BookingPage {
 
   public optionWork = false;
   public editDate2 = false;
-  public todayDate = new Date().toISOString();
-  public initDate = new Date().toISOString();
-  public finishDate = new Date().toISOString();
+  public todayDate = this.criarData();
+  public initDate = this.criarData();
+  public finishDate = this.criarData();
   public dateI = new Date();
   public dateF = new Date();
   public close = true;
@@ -69,6 +69,11 @@ export class BookingPage {
     }
   }
 
+    public criarData(){
+      const date = new Date();
+      date.setHours(0,0,0,0);
+      return date.toISOString();
+    }
 
   public removeGuest(){
     if (this.qtdGuest > 0){
@@ -167,10 +172,10 @@ export class BookingPage {
 
   public async booking(){
       /*Aqui deve verificar também se initDate > finishDate e initDate > diaAtual (pode ser uma váriavel inicializada como new Date()*/
-      console.log('initDate: ' + this.initDate);
-      console.log('finishDate: ' + this.finishDate);
-      console.log('finishDate: ' + this.todayDate);
-
+      console.log('Data de Hoje: ' + this.todayDate);
+      console.log('CheckIn: ' + this.initDate);
+      console.log('CheckOut: ' + this.finishDate);
+      
       /*IF que verifica se as infos de pagamento do boleto foram preenchidas no Modal e inclui a reserva */
       // tslint:disable-next-line:max-line-length
       if (this.qtdGuest > 0 && this.nameBoleto !== null && this.emailBoleto !== null && this.cpfBoleto !== null && this.initDate < this.finishDate && this.initDate >= this.todayDate ){

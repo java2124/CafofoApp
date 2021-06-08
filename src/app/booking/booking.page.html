@@ -70,9 +70,9 @@
       </ion-row>
       <ion-row *ngIf="editDate2 && close" class="ion-align-items-center">
         <ion-col>
-          <ion-datetime  placeholder="Check-in" [(ngModel)]="initDate"></ion-datetime>
+          <ion-datetime displayFormat="D MMM YYYY" min="2021" max="2024" placeholder="Check-in" [(ngModel)]="initDate"></ion-datetime>
           <hr color=#fff>
-          <ion-datetime  placeholder="Check-out" [(ngModel)]="finishDate"></ion-datetime>
+          <ion-datetime displayFormat="D MMM YYYY" min="2021" max="2024" placeholder="Check-out" [(ngModel)]="finishDate"></ion-datetime>
         </ion-col>
         <ion-col size="auto">
           <ion-button color="danger" (click)="closed()" fill="clear">
