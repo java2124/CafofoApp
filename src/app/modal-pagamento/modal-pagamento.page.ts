@@ -15,12 +15,33 @@ export class ModalPagamentoPage implements OnInit {
   public name =  null;
   public cpf = null;
   public email = null;
+  public cep = null;
+  public rua = null;
+  public bairro = null;
+  public uf = null;
+
+
 
   public formBoleto(){
     this.boleto = true;
   }
 
   constructor(private modalController: ModalController, private alertController: AlertController, private navCtrl: NavController) { }
+
+  /*método que faz a requisição no web service e retorna o valor nos campos*/
+  public async buscarCep(){
+      try{
+    let response = await fetch(`https://viacep.com.br/ws/${this.cep}/json/`);
+    let body = await response.json();
+      this.rua = body.logradouro;
+      this.bairro = body.bairro;
+      this.uf = body.uf;
+
+    }
+     catch(ex){
+      console.log(ex);
+      }
+  }
 
   /* Método que é chamado após o usuario clicar em cancelar no modal pagamento */
   /* Ele manda os parâmetros como nulo para a .ts de reserva (booking)*/

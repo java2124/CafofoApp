@@ -31,6 +31,26 @@
         <ion-input class="ion-padding" [(ngModel)] = "email" placeholder="E-mail"></ion-input>
       </ion-row>
       <hr>
+      <ion-row>
+        <ion-icon name="alert-outline"></ion-icon>
+        <ion-input maxlength="8" class="ion-padding" [(ngModel)] = "cep" placeholder="Cep" (ionBlur)="buscarCep()"></ion-input>
+      </ion-row>
+      <hr>
+      <ion-row>
+        <ion-icon name="alert-outline"></ion-icon>
+        <ion-input class="ion-padding" [(ngModel)] = "rua" placeholder="Rua"></ion-input>
+      </ion-row>
+      <hr>
+      <ion-row>
+        <ion-icon name="alert-outline"></ion-icon>
+        <ion-input class="ion-padding" [(ngModel)] = "bairro" placeholder="Bairro"></ion-input>
+      </ion-row>
+      <hr>
+      <ion-row>
+        <ion-icon name="alert-outline"></ion-icon>
+        <ion-input class="ion-padding" [(ngModel)] = "uf" placeholder="UF"></ion-input>
+      </ion-row>
+      <hr>
       <ion-row class="ion-text-center">
         <ion-text color="medium"><strong>Seu boleto será gerado após a confirmação da reserva!</strong></ion-text>
       </ion-row>
